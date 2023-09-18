@@ -22,7 +22,7 @@ ggsave('../Res_2_Results/RepVis_Demographics/DistributionPlot_AgeBySex.png',p_ag
 ggsave('../Res_2_Results/RepVis_Demographics/DistributionPlot_AgeBySex.svg',p_age_gender)
 
 p_age_region <- ggplot(data, aes(x = Region_4L, y = Age_years)) +
-  ggdist::stat_halfeye(adjuth = .5, .width = 0, justification = -.2, point_colour = NA) +
+  ggdist::stat_halfeye(adjust = .5, .width = 0, justification = -.2, point_colour = NA) +
   geom_boxplot(width = .1, outlier.shape = NA) +
   geom_jitter(width = .05, alpha = .001) +
   labs(title = "Age Distribution (Stratified by Geographic Area)")+
@@ -71,6 +71,8 @@ ggsave('../Res_2_Results/RepVis_Demographics/BarPlot_SexByGrade.svg',p_sex_grade
 p_sex_region <- ggplot(data, aes(x = Region_4L,color=Gender,fill=Gender)) +
   geom_bar(position="dodge",stat = 'count')+
   xlab('Geographic Area')+ylab('counts')+theme_bruce()+
-  theme(panel.grid.major.y = element_line(linetype = 'dashed',linewidth = 0.8))
+  theme(panel.grid.major.y = element_line(linetype = 'dashed',linewidth = 0.8))+
+  theme(axis.text.x = element_text(angle = -30))
+
 ggsave('../Res_2_Results/RepVis_Demographics/BarPlot_SexByArea.png',p_sex_region)
 ggsave('../Res_2_Results/RepVis_Demographics/BarPlot_SexByArea.svg',p_sex_region)
