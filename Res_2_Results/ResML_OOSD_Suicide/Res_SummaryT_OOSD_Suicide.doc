@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p></p>
+<table>
+<thead>
+<tr> <th align='left'>Index</th> <th align='right'>Balance Weighted</th> <th align='right'>Downsampling (1,000 times)</th> <th align='right'>Upsampling (1,000 times)</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>ACC</td> <td align='right'>85.72%</td> <td align='right'>85.71% (0.17%) [85.20%, 86.29%]</td> <td align='right'>85.73% (0.03%) [85.64%, 85.84%]</td> </tr>
+<tr> <td align='left'>Sensitivity</td> <td align='right'>85.92%</td> <td align='right'>85.91% (0.18%) [85.24%, 86.54%]</td> <td align='right'>85.93% (0.04%) [85.80%, 86.04%]</td> </tr>
+<tr> <td align='left'>Specificity</td> <td align='right'>85.72%</td> <td align='right'>85.71% (0.18%) [85.14%, 86.34%]</td> <td align='right'>85.72% (0.03%) [85.62%, 85.84%]</td> </tr>
+<tr> <td align='left'>Balanced ACC</td> <td align='right'>85.82%</td> <td align='right'>85.81% (0.02%) [85.73%, 85.86%]</td> <td align='right'>85.82% (0.01%) [85.80%, 85.84%]</td> </tr>
+<tr> <td align='left'>F1-score</td> <td align='right'>34.04%</td> <td align='right'>0.3402 (0.0022) [0.3339, 0.3477]</td> <td align='right'>0.3404 (0.0004) [0.3393, 0.3418]</td> </tr>
+<tr> <td align='left'>PPV</td> <td align='right'>21.22%</td> <td align='right'>21.21% (0.18%) [20.69%, 21.84%]</td> <td align='right'>21.23% (0.03%) [21.13%, 21.34%]</td> </tr>
+<tr> <td align='left'>NPV</td> <td align='right'>99.27%</td> <td align='right'>99.27% (0.01%) [99.24%, 99.30%]</td> <td align='right'>99.27% (0.00%) [99.26%, 99.27%]</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>
