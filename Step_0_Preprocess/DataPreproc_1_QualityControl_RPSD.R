@@ -1,9 +1,12 @@
+library(grid)
 library(ggExtra)
 library(bruceR)
 library(simputation)
 library(naniar)
 library(careless)
 library(pheatmap)
+library(ggplot2)  
+library(gridExtra)
 
 set.wd()
 source('../Supp_0_Subfunctions/s_CIER_functions.R')
@@ -126,11 +129,19 @@ data$maxlongstring_all <- data$maxlongstring_学习倦怠 + data$maxlongstring_�
   data$maxlongstring_自伤行为 + data$maxlongstring_自杀意念
 
 # apply threshold to careless indices -----------------------------------------
-MahaD_CIER_flag <- data$MahaDist>qchisq(0.999, df = 16+14+20+10+20+9+14)
-EvenOdd_CIER_flag <- data$EvenOddConsistency<=0.7
-longstring_CIER_flag <- data$maxlongstring_all > (round((16+14+20+10+20+9+14)*0.6)) 
-IRV_CIER_flag <- data$IRV_weightedsum_zscore<=-2
-RT_CIER_flag <- (data$ResponseTime_TPI<=2) | (data$ResponseTime_TPI >= 20)
+data <- fread('../Res_3_IntermediateData/16w_data_age_unclear.txt',encoding = 'UTF-8')
+threshold = data.frame(MahaD_SQ = qchisq(0.999, df = 16+14+20+10+20+9+14),
+                       EOC = 0.7,
+                       MLS = round((16+14+20+10+20+9+14)*0.6),
+                       IRV = -2,
+                       TPI_Low = 2,
+                       TPI_Up = 20)
+MahaD_CIER_flag <- data$MahaDist > threshold$MahaD_SQ
+EvenOdd_CIER_flag <- data$EvenOddConsistency <= threshold$EOC
+longstring_CIER_flag <- data$maxlongstring_all > threshold$MLS
+IRV_CIER_flag <- data$IRV_weightedsum_zscore <= threshold$IRV
+RT_CIER_flag <- (data$ResponseTime_TPI <= threshold$TPI_Low) | 
+  (data$ResponseTime_TPI >= threshold$TPI_Up)
 cat('The number of cases were identified as C/IER (stratified by each C/IER index):\n')
 cat(sprintf('
             Mahalanobis Distance：%d\n
@@ -156,40 +167,49 @@ data$CIER_Flag = CIER_Flag
 
 
 select(data,c(MahaDist,EvenOddConsistency,maxlongstring_all,
-              IRV_weightedsum,IRV_number,ResponseTime_TPI)) %>% cor() %>% 
-  pheatmap(display_numbers = T,fontsize = 14,fontsize_row = 10,fontsize_col = 10,
+              IRV_weightedsum,IRV_number,ResponseTime_TPI)) %>%
+  rename(`Squared Mahalanobis Distance` = MahaDist,
+         `Even-odd Consistency` = EvenOddConsistency,
+         `Max Longstring` = maxlongstring_all,
+         `Weighted IRV` = IRV_weightedsum,
+         `The number of IRV=0` = IRV_number,
+         `Item Response Time` = ResponseTime_TPI) %>% cor() %>% 
+  pheatmap(display_numbers = T,fontsize = 14,fontsize_row = 8,fontsize_col = 8,
            angle_col = 315,
            filename = '../Res_2_Results/PreprocRes/pheatmap_CarelessIndics.png')
 
 select(data,c(MahaDist,EvenOddConsistency,maxlongstring_all,
               IRV_weightedsum,IRV_number,ResponseTime_TPI)) %>%
-Corr(p.adjust = 'fdr',plot.color.levels = 100,
-      plot.palette = c("#2171B5", "white", "#B52127"),
-      plot.width = 10,plot.height = 10,plot.dpi = 300, 
-      file = '../Res_2_Results/PreprocRes/Corr_CarelessIndices.doc',
-     plot.file = '../Res_2_Results/PreprocRes/Corr_CarelessIndics.png')
+  Corr(p.adjust = 'fdr',plot.color.levels = 100,
+       plot.palette = c("#2171B5", "white", "#B52127"),
+       plot.width = 10,plot.height = 10,plot.dpi = 300, 
+       file = '../Res_2_Results/PreprocRes/Corr_CarelessIndices.doc',
+       plot.file = '../Res_2_Results/PreprocRes/Corr_CarelessIndics.png')
 
 plot.box.distribution(data$MahaDist,
-                      '../Res_2_Results/PreprocRes/Distribution_D.jpg',
-                      'D2')
+                      '../Res_2_Results/PreprocRes/Distribution_D2',
+                      'D2',
+                      threshold$MahaD_SQ)
 plot.box.distribution(data$EvenOddConsistency,
-                      '../Res_2_Results/PreprocRes/Distribution_EvenOdd.jpg',
-                      'Even-Odd Consistency')
+                      '../Res_2_Results/PreprocRes/Distribution_EvenOdd',
+                      'Even-Odd Consistency',
+                      threshold$EOC)
 plot.box.distribution(data$maxlongstring_all,
-                      '../Res_2_Results/PreprocRes/Distribution_Maxlongstring.jpg',
-                      'sum of max longstring')
+                      '../Res_2_Results/PreprocRes/Distribution_Maxlongstring',
+                      'sum of max longstring',
+                      threshold$MLS)
 plot.box.distribution(data$IRV_number,
-                      '../Res_2_Results/PreprocRes/Distribution_IRVnumber.jpg',
-                      'the number of IRV=0')
+                      '../Res_2_Results/PreprocRes/Distribution_IRVnumber',
+                      'the number of IRV=0',
+                      3)
 plot.box.distribution(data$IRV_weightedsum,
-                      '../Res_2_Results/PreprocRes/Distribution_weightedIRV.jpg',
-                      'weighted IRV')
-plot.box.distribution(data$EvenOddConsistency,
-                      '../Res_2_Results/PreprocRes/Distribution_EvenOdd.jpg',
-                      'Even-Odd Consistency')
+                      '../Res_2_Results/PreprocRes/Distribution_weightedIRV',
+                      'weighted IRV',
+                      threshold$IRV)
 plot.box.distribution(data$ResponseTime_TPI,
-                      '../Res_2_Results/PreprocRes/Distribution_ResponseTime.jpg',
-                      'Response Time (TPI)')
+                      '../Res_2_Results/PreprocRes/Distribution_ResponseTime',
+                      'Response Time (TPI)',
+                      c(threshold$TPI_Low,threshold$TPI_Up))
 
 fwrite(data,file = '../Res_3_IntermediateData/16w_data_age_unclear.txt')
 # Age clearing ------------------------------------------------------------
