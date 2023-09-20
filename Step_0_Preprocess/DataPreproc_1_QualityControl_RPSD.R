@@ -180,9 +180,15 @@ select(data,c(MahaDist,EvenOddConsistency,maxlongstring_all,
 
 select(data,c(MahaDist,EvenOddConsistency,maxlongstring_all,
               IRV_weightedsum,IRV_number,ResponseTime_TPI)) %>%
-  Corr(p.adjust = 'fdr',plot.color.levels = 100,
+  rename(`D2` = MahaDist,
+         `EOC` = EvenOddConsistency,
+         `Longstring` = maxlongstring_all,
+         `IRV` = IRV_weightedsum,
+         `IRV=0` = IRV_number,
+         `Item RT` = ResponseTime_TPI) %>%
+  Corr(p.adjust = 'bonf',plot.color.levels = 100,
        plot.palette = c("#2171B5", "white", "#B52127"),
-       plot.width = 10,plot.height = 10,plot.dpi = 300, 
+       plot.dpi = 144,plot.width = 8,plot.height = 8,
        file = '../Res_2_Results/PreprocRes/Corr_CarelessIndices.doc',
        plot.file = '../Res_2_Results/PreprocRes/Corr_CarelessIndics.png')
 

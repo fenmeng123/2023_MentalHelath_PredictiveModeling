@@ -21,39 +21,39 @@ table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
 <tr> <th align='left'>Variable</th> <th align='center'><i>M</i></th> <th align='center'><i>SD</i></th> <th align='center' style='width:49px'>1</th> <th align='center' style='width:49px'>2</th> <th align='center' style='width:49px'>3</th> <th align='center' style='width:49px'>4</th> <th align='center' style='width:49px'>5</th> <th align='center' style='width:49px'>6</th> </tr>
 </thead>
 <tbody>
-<tr> <td align='left'>1. MahaDist</td> <td align='right'>103.00</td> <td align='right'>75.59</td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.38<sup>***</sup></td> <td align='left'>–.21<sup>***</sup></td> <td align='left'>&ensp;.20<sup>***</sup></td> <td align='left'>–.26<sup>***</sup></td> <td align='left'>–.03<sup>***</sup></td> </tr>
-<tr> <td align='left'>2. EvenOddConsistency</td> <td align='right'>0.93</td> <td align='right'>0.10</td> <td align='left'>–.38<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>&ensp;.06<sup>***</sup></td> <td align='left'>–.13<sup>***</sup></td> <td align='left'>&ensp;.12<sup>***</sup></td> <td align='left'>–.01<sup>***</sup></td> </tr>
-<tr> <td align='left'>3. maxlongstring_all</td> <td align='right'>38.74</td> <td align='right'>15.97</td> <td align='left'>–.21<sup>***</sup></td> <td align='left'>&ensp;.06<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;.87<sup>***</sup></td> <td align='left'>–.30<sup>***</sup></td> </tr>
-<tr> <td align='left'>4. IRV_weightedsum</td> <td align='right'>1.10</td> <td align='right'>0.28</td> <td align='left'>&ensp;.20<sup>***</sup></td> <td align='left'>–.13<sup>***</sup></td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;.21<sup>***</sup></td> </tr>
-<tr> <td align='left'>5. IRV_number</td> <td align='right'>1.18</td> <td align='right'>1.14</td> <td align='left'>–.26<sup>***</sup></td> <td align='left'>&ensp;.12<sup>***</sup></td> <td align='left'>&ensp;.87<sup>***</sup></td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.27<sup>***</sup></td> </tr>
-<tr> <td align='left'>6. ResponseTime_TPI</td> <td align='right'>6.01</td> <td align='right'>2.73</td> <td align='left'>–.03<sup>***</sup></td> <td align='left'>–.01<sup>***</sup></td> <td align='left'>–.30<sup>***</sup></td> <td align='left'>&ensp;.21<sup>***</sup></td> <td align='left'>–.27<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> </tr>
+<tr> <td align='left'>1. D2</td> <td align='right'>103.00</td> <td align='right'>75.59</td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.38<sup>***</sup></td> <td align='left'>–.21<sup>***</sup></td> <td align='left'>&ensp;.20<sup>***</sup></td> <td align='left'>–.26<sup>***</sup></td> <td align='left'>–.03<sup>***</sup></td> </tr>
+<tr> <td align='left'>2. EOC</td> <td align='right'>0.93</td> <td align='right'>0.10</td> <td align='left'>–.38<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>&ensp;.06<sup>***</sup></td> <td align='left'>–.13<sup>***</sup></td> <td align='left'>&ensp;.12<sup>***</sup></td> <td align='left'>–.01<sup>***</sup></td> </tr>
+<tr> <td align='left'>3. Longstring</td> <td align='right'>38.74</td> <td align='right'>15.97</td> <td align='left'>–.21<sup>***</sup></td> <td align='left'>&ensp;.06<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;.87<sup>***</sup></td> <td align='left'>–.30<sup>***</sup></td> </tr>
+<tr> <td align='left'>4. IRV</td> <td align='right'>1.10</td> <td align='right'>0.28</td> <td align='left'>&ensp;.20<sup>***</sup></td> <td align='left'>–.13<sup>***</sup></td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;.21<sup>***</sup></td> </tr>
+<tr> <td align='left'>5. IRV=0</td> <td align='right'>1.18</td> <td align='right'>1.14</td> <td align='left'>–.26<sup>***</sup></td> <td align='left'>&ensp;.12<sup>***</sup></td> <td align='left'>&ensp;.87<sup>***</sup></td> <td align='left'>–.44<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> <td align='left'>–.27<sup>***</sup></td> </tr>
+<tr> <td align='left'>6. Item RT</td> <td align='right'>6.01</td> <td align='right'>2.73</td> <td align='left'>–.03<sup>***</sup></td> <td align='left'>–.01<sup>***</sup></td> <td align='left'>–.30<sup>***</sup></td> <td align='left'>&ensp;.21<sup>***</sup></td> <td align='left'>–.27<sup>***</sup></td> <td align='left'>&ensp;&nbsp;—</td> </tr>
 </tbody>
 </table>
-<p><i>Note</i>. <i>p</i> values above the diagonal are adjusted using the "fdr" method.</p>
+<p><i>Note</i>. <i>p</i> values above the diagonal are adjusted using the "bonf" method.</p>
 <p>* <i>p</i> < .05. ** <i>p</i> < .01. *** <i>p</i> < .001.</p><p><br/><br/></p><p><b>Table 2. Correlations and 95% Confidence Intervals.</b></p>
 <table>
 <thead>
 <tr> <th align='left'>Pairs</th> <th align='center'><i>r</i> [95% CI]</th> <th align='center'><i>p</i></th> <th align='center'><i>N</i></th> </tr>
 </thead>
 <tbody>
-<tr> <td align='left'>MahaDist-EvenOddConsistency</td> <td align='left'>–.38 [–.39, –.38]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>MahaDist-maxlongstring_all</td> <td align='left'>–.21 [–.22, –.21]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>MahaDist-IRV_weightedsum</td> <td align='left'>&ensp;.20 [.19, .21]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>MahaDist-IRV_number</td> <td align='left'>–.26 [–.26, –.25]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>MahaDist-ResponseTime_TPI</td> <td align='left'>–.03 [–.04, –.03]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>EvenOddConsistency-maxlongstring_all</td> <td align='left'>&ensp;.06 [.05, .06]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>EvenOddConsistency-IRV_weightedsum</td> <td align='left'>–.13 [–.14, –.12]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>EvenOddConsistency-IRV_number</td> <td align='left'>&ensp;.12 [.11, .13]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>EvenOddConsistency-ResponseTime_TPI</td> <td align='left'>–.01 [–.02, –.00]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>maxlongstring_all-IRV_weightedsum</td> <td align='left'>–.44 [–.45, –.43]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>maxlongstring_all-IRV_number</td> <td align='left'>&ensp;.87 [.87, .87]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>maxlongstring_all-ResponseTime_TPI</td> <td align='left'>–.30 [–.31, –.30]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>IRV_weightedsum-IRV_number</td> <td align='left'>–.44 [–.45, –.44]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>IRV_weightedsum-ResponseTime_TPI</td> <td align='left'>&ensp;.21 [.21, .22]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
-<tr> <td align='left'>IRV_number-ResponseTime_TPI</td> <td align='left'>–.27 [–.27, –.26]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>D2-EOC</td> <td align='left'>–.38 [–.39, –.38]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>D2-Longstring</td> <td align='left'>–.21 [–.22, –.21]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>D2-IRV</td> <td align='left'>&ensp;.20 [.19, .21]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>D2-IRV=0</td> <td align='left'>–.26 [–.26, –.25]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>D2-Item RT</td> <td align='left'>–.03 [–.04, –.03]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>EOC-Longstring</td> <td align='left'>&ensp;.06 [.05, .06]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>EOC-IRV</td> <td align='left'>–.13 [–.14, –.12]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>EOC-IRV=0</td> <td align='left'>&ensp;.12 [.11, .13]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>EOC-Item RT</td> <td align='left'>–.01 [–.02, –.00]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>Longstring-IRV</td> <td align='left'>–.44 [–.45, –.43]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>Longstring-IRV=0</td> <td align='left'>&ensp;.87 [.87, .87]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>Longstring-Item RT</td> <td align='left'>–.30 [–.31, –.30]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>IRV-IRV=0</td> <td align='left'>–.44 [–.45, –.44]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>IRV-Item RT</td> <td align='left'>&ensp;.21 [.21, .22]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
+<tr> <td align='left'>IRV=0-Item RT</td> <td align='left'>–.27 [–.27, –.26]</td> <td align='right'>< .001</td> <td align='right'>160962</td> </tr>
 </tbody>
 </table>
-<p><i>Note</i>. <i>p</i> values and 95% CIs are adjusted using the "fdr" method.</p>
+<p><i>Note</i>. <i>p</i> values and 95% CIs are adjusted using the "bonf" method.</p>
 </body>
 
 </html>

@@ -15,9 +15,12 @@ data <- subset(data,CIER_Flag==F,-c(RT_TPI,MLS_Sum,IRV_WSum_Z,EOC,MahaD_SQ,
                                     IRV_Dep,IRV_SuiciIdea,IRV_SelfInjury,
                                     IRV_WSum,IRV_Num,RT_BehavioralProblem))
 
+data <- rename(data,
+               BullyVict_1 = Bully,
+               BullyVict_2 = BeBully)
 
-var.ls <- c('Stress_','AcadBO_','IAT_','Anx_','Dep_','SelfInjury_','SuiciIdea_')
-item.ls <- list(1:14,1:16,1:20,1:20,1:10,1:9,1:14)
+var.ls <- c('Stress_','AcadBO_','IAT_','Anx_','Dep_','SelfInjury_','SuiciIdea_','BullyVict_')
+item.ls <- list(1:14,1:16,1:20,1:20,1:10,1:9,1:14,1:2)
 
 ReliaRes <- data.frame()
 for (i in 1:length(var.ls)){
@@ -53,5 +56,5 @@ ReliaRes %>% rename("Crobach's Alpha"=raw_alpha,
                     "McDonald's Omega_h"=omega_h,
                     "McDonald's Omega_t"=omega_t) -> ReliaRes
 print(ReliaRes)
-print_table(ReliaRes,file = '../Res_2_Results/Res_Reliability_RPSD.doc',
+print_table(ReliaRes,file = '../Res_2_Results/DescriptiveStatRes/Res_All_Reliability_RPSD.doc',
             digits = 4,title = 'Reliability Analysis of Psychometric Scales')
