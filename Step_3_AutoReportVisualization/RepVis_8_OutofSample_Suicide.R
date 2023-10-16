@@ -6,7 +6,9 @@ rm(list=ls())
 gc()
 set.wd()
 source('../Supp_0_Subfunctions/s_OOSD_ResStats.R')
-
+sink('../Res_1_Logs/Log_RepVis_8_OOSD_Suicide_Results.txt',
+     append = F,
+     type = 'output')
 anchor <- read.xlsx('../Res_2_Results/ResML_OOSD_Suicide/Res_OOSD_weighted_Suicide.xlsx')
 
 ResDown <- read.xlsx('../Res_2_Results/ResML_OOSD_Suicide/Res_OOSD_Down1000_Suicide.xlsx')
@@ -34,10 +36,16 @@ Get.Res.Sum(ResUp_Ext) %>%
 Get.Res.Sum(anchor_Ext) %>%
   merge(ResDown_Ext_Table,by = 'Index') %>%
   merge(ResUp_Ext_Table,by='Index') %>%
-  arrange(factor(Index,levels=c('ACC','Sensitivity','Specificity',
-                                'Balanced ACC','F1-score','PPV','NPV'))) %>%
+  arrange(factor(Index,levels=c('ACC','Balanced ACC','Sensitivity','Specificity',
+                                'F1-score','PPV','NPV'))) %>%
   print_table(file = '../Res_2_Results/ResML_OOSD_Suicide/Res_SummaryT_OOSD_Suicide.doc',
               row.names = F)
+Get.Res.Sum(anchor_Ext) %>%
+  merge(ResDown_Ext_Table,by = 'Index') %>%
+  merge(ResUp_Ext_Table,by='Index') %>%
+  arrange(factor(Index,levels=c('ACC','Balanced ACC','Sensitivity','Specificity',
+                                'F1-score','PPV','NPV'))) %>%
+  export('../Res_2_Results/ResML_OOSD_Suicide/Res_SummaryT_OOSD_Suicide.rda')
 
 # Ridge Plot for Balanced ACC ---------------------------------------------
 ResDown_Ext$Method <- 'Downsampling'
@@ -125,7 +133,10 @@ ResDown %>% Get.Coef.Table() %>%
 ResUp %>% Get.Coef.Table() %>%
   print_table(digits = 2,
               file = '../Res_2_Results/ResML_OOSD_Suicide/Coef_Upsample_SummaryT_Suicide.doc')
-
+ResDown %>% Get.Coef.Table() %>% 
+  export('../Res_2_Results/ResML_OOSD_Suicide/Coef_Downsample_SummaryT_Suicide.rda')
+ResUp %>% Get.Coef.Table() %>% 
+  export('../Res_2_Results/ResML_OOSD_Suicide/Coef_Upsample_SummaryT_Suicide.rda')
 # Compare Feature Importance: Ridges Plot ---------------------------------
 ResDown %>% Coef.Transform() %>% 
   pivot_longer(cols = everything(),
@@ -185,3 +196,4 @@ ggsave('../Res_2_Results/ResML_OOSD_Suicide/Res_CoefRidges_OOSD_Suicide.svg',
        width = 8.74,
        height = 7.72,
        plot = p)
+sink()

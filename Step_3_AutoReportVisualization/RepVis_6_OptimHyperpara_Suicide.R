@@ -3,8 +3,10 @@ library(openxlsx)
 library(ggridges)
 library(svglite)
 set.wd()
-
-res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Suicide/ResML_L2Logit_RFECV_IterNum1000.xlsx')
+sink('../Res_1_Logs/Log_OptimalLambda_Suicide.txt',
+     type = 'output',
+     append = F)
+res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Suicide/ResML_L2Logit_RFECV_IterNum1000_Suicide.xlsx')
 
 # Find the best hyper parameter -------------------------------------------
 res %>% select(-X1) %>%
@@ -14,6 +16,7 @@ res %>% select(-X1) %>%
 Opt_lambda = stats_res$Lambda2[which.max(stats_res$BalancedACC)]
 Opt_balacc = stats_res$BalancedACC[which.max(stats_res$BalancedACC)]
 cat(sprintf('The Best L2 = %.6f (Balanced ACC=%.4f)\n',Opt_lambda,Opt_balacc))
+annotate_text = bquote('Initial'~lambda[2] == .(round(Opt_lambda,digits = 6)))
 
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
@@ -62,7 +65,7 @@ res %>% select(-X1) %>%
     linewidth = 1,
   ) +
   annotate(geom = "text", x = 0.4, y = 0.91,
-           label = expression(paste(lambda[2],'=278.26')), hjust = "right") -> p
+           label = annotate_text, hjust = "right") -> p
 p
 
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Suicide/Res_Lineplot_HyperparaOptim_Suicide.png',
@@ -70,7 +73,7 @@ ggsave('../Res_2_Results/ResML_OptimeHyperpara_Suicide/Res_Lineplot_HyperparaOpt
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Suicide/Res_Lineplot_HyperparaOptim_Suicide.svg',
        plot = p)
 # Plot of result of fine-tuning -------------------------------------------
-res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Suicide/ResML_L2Logit_FineTune_IterNum100.xlsx')
+res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Suicide/ResML_L2Logit_FineTune_IterNum100_Suicide.xlsx')
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
   summarise(BalancedACC = mean(balacc),
@@ -78,6 +81,7 @@ res %>% select(-X1) %>%
 Opt_lambda = stats_res$Lambda2[which.max(stats_res$BalancedACC)]
 Opt_balacc = stats_res$BalancedACC[which.max(stats_res$BalancedACC)]
 cat(sprintf('Fine-tuning: the Best L2 = %.6f (Balanced ACC=%.4f)\n',Opt_lambda,Opt_balacc))
+annotate_text = bquote('Optimal'~lambda[2] == .(round(Opt_lambda,digits = 6)))
 
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
@@ -104,8 +108,12 @@ res %>% select(-X1) %>%
              size=4,
              colour = 'red',
              shape = 1,
-             stroke = 2) -> p
+             stroke = 2)+
+  annotate(geom = "text", x = 298, y = 0.8286,
+           label = annotate_text, hjust = "left") -> p
+p
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Suicide/Res_Lineplot_FineTune_Suicide.png',
        plot = p)
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Suicide/Res_Lineplot_FineTune_Suicide.svg',
        plot = p)
+sink()

@@ -21,15 +21,17 @@ str_remove(rownames(stats_res),'coef_') %>%
   str_replace('AcadBO_Sum','Academic Burn-out') %>%
   str_replace('IAT_Sum','Internet Addiction') %>%
   str_replace('SelfInjury_Sum','Non-suicidal Self-injury') %>%
-  str_replace('BeBully_Bin','Be Bullied')%>%
-  str_replace('Grade','Education Level (Grade)') %>%
+  str_replace('BeBully_Bin','Being Bullied')%>%
+  str_replace('Grade','Age') %>%
   str_replace('Gender_Girl','Biological Sex') %>%
-  str_replace('Bully_Bin','Bully') -> stats_res$Predictors
+  str_replace('Bully_Bin','Bullying') -> stats_res$Predictors
 rownames(stats_res) <- NULL
 stats_res %>% select(c(Predictors,everything())) %>% 
   print_table(digits = 2,
               row.names = F,
               file = '../Res_2_Results/ResML_RFECV_Suicide/Res_SummaryT_Features_RFECV.doc')
+stats_res %>% select(c(Predictors,everything())) %>% 
+  export('../Res_2_Results/ResML_RFECV_Suicide/Res_SummaryT_Features_RFECV.rda')
 stats_res$Predictors -> Predictor_Order
 Feature_Freq <- stats_res
 Feature_Freq$Freq <- 1 - Feature_Freq$Freq
@@ -41,10 +43,10 @@ str_remove(colnames(stats_res),'coef_') %>%
   str_replace('AcadBO_Sum','Academic Burn-out') %>%
   str_replace('IAT_Sum','Internet Addiction') %>%
   str_replace('SelfInjury_Sum','Non-suicidal Self-injury') %>%
-  str_replace('BeBully_Bin','Be Bullied')%>%
-  str_replace('Grade','Education Level (Grade)') %>%
+  str_replace('BeBully_Bin','Being Bullied')%>%
+  str_replace('Grade','Age') %>%
   str_replace('Gender_Girl','Biological Sex') %>%
-  str_replace('Bully_Bin','Bully') -> colnames(stats_res)
+  str_replace('Bully_Bin','Bullying') -> colnames(stats_res)
 pivot_longer(stats_res,
              cols = everything(),
              names_to = 'Predictors',
@@ -53,7 +55,7 @@ factor(stats_res$Predictors,
        levels = Predictor_Order) %>% forcats::fct_rev() -> stats_res$Predictors
 factor(Feature_Freq$Predictors,
        levels = Predictor_Order) -> Feature_Freq$Predictors
-
+Feature_Freq$RefVal = 0.5
 stats_res %>%
   ggplot(aes(x = `Feature Importance [Regression Coefficients]`,
              y = Predictors, fill = after_stat(x))) +
@@ -75,6 +77,12 @@ stats_res %>%
                  data = Feature_Freq,
                  inherit.aes = F,
                 )+
+  geom_ysideline(aes(x = RefVal,y = 1:9),
+                 colour = 'black',
+                 linetype = 'dashed',
+                 linewidth = 0.5,
+                 alpha = 1,
+                 data = Feature_Freq) + 
   scale_yfill_gradient(low ="#EEEEEE", high = "#FF5500")+
   theme(ggside.axis.line.x = element_line(colour = 'black'),
         ggside.axis.line.y = element_line(colour = 'black'),
@@ -86,7 +94,6 @@ stats_res %>%
   )+
   labs(title = 'Predicting Suicidal Ideation: Feature Importance & Stability',
       ) + xlab('Importance [Regression Coefficient]; Stability [Feature Frequency]') -> p
-p
 ggsave('../Res_2_Results/Res_RidgesPlot_CoefsFreq_Suicide.png',
        bg="#ffffff",
        plot = p)

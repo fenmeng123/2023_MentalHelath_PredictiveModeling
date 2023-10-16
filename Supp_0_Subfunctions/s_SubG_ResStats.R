@@ -247,3 +247,60 @@ Get.Suicide.SubG.Summary.Table <- function(MdlMethod,Subgroup,Input_Dir){
                                   'Academic Burn-out','Education Level (Grade)'))) -> Full_Table
   return(list('Compact' = Compact_Table,'Full' = Full_Table))
 }
+
+s_get_Subgroup_Coefs <- function(MdlMethod,Subgroup,Input_Dir){
+  data <- Extract.Res.Coef(MdlMethod,Subgroup,Input_Dir)
+  if ('Dep' %partin% Input_Dir){
+    pivot_longer(data,cols = c(`Anxiety`,`Perceived Stress`,`Academic Burn-out`,
+                               `Internet Addiction`,`Non-suicidal Self-injury`,
+                               `Be Bullied`,`Education Level (Grade)`),
+                 values_to = 'Feature Importance',
+                 names_to = 'Predictors') %>%
+      select(`Feature Importance`,Predictors,Group) -> data_coef
+    data_coef$Predictors <- factor(data_coef$Predictors,
+                                   levels=c('Anxiety',
+                                            'Perceived Stress',
+                                            'Academic Burn-out',
+                                            'Internet Addiction',
+                                            'Non-suicidal Self-injury',
+                                            'Be Bullied',
+                                            'Education Level (Grade)'),
+                                   labels = c('Anxiety',
+                                              'Perceived Stress',
+                                              'Academic Burn-out',
+                                              'Internet Addiction',
+                                              'Non-suicidal Self-injury',
+                                              'Being Bullied',
+                                              'Age'))
+  }else{
+    pivot_longer(data,cols = c(`Anxiety`,`Perceived Stress`,`Academic Burn-out`,
+                               `Internet Addiction`,`Non-suicidal Self-injury`,
+                               `Education Level (Grade)`),
+                 values_to = 'Feature Importance',
+                 names_to = 'Predictors') %>%
+      select(`Feature Importance`,Predictors,Group) -> data_coef
+    data_coef$Predictors <- factor(data_coef$Predictors,
+                                   levels=c('Anxiety',
+                                            'Perceived Stress',
+                                            'Academic Burn-out',
+                                            'Internet Addiction',
+                                            'Non-suicidal Self-injury',
+                                            'Education Level (Grade)'),
+                                   labels = c('Anxiety',
+                                              'Perceived Stress',
+                                              'Academic Burn-out',
+                                              'Internet Addiction',
+                                              'Non-suicidal Self-injury',
+                                              'Age'))
+  }
+  data_coef %>% 
+    group_by(Group,Predictors) %>%
+    reframe(Mean = mean(`Feature Importance`),
+            LowCI = quantile(`Feature Importance`, 0.025),
+            UpCI = quantile(`Feature Importance`, 0.975),
+            SD = sd(`Feature Importance`),
+            MIN = min(`Feature Importance`),
+            MAX = max(`Feature Importance`)) %>%
+    as.data.frame() -> T_df
+  return(T_df)
+  }

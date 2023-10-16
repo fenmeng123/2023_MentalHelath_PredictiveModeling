@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p>Table S6. Internal Sample Feature Selection: Cross-validated Recursive Feature Elimination</p>
+<table>
+<thead>
+<tr> <th align='left'>Predictors</th> <th align='right'>Stability</th> <th align='right'>Importance</th> <th align='right'>Median</th> <th align='right'>Min</th> <th align='right'>Max</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Predicting Depression Problem</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>1</td> <td align='right'>8.97 (0.22)</td> <td align='right'>8.96476563292348</td> <td align='right'>8.12913839477602</td> <td align='right'>9.74347108841565</td> </tr>
+<tr> <td align='left'>Perceived Stress</td> <td align='right'>1</td> <td align='right'>4.23 (0.23)</td> <td align='right'>4.22739121441367</td> <td align='right'>3.40828003196322</td> <td align='right'>4.91995011381249</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>1</td> <td align='right'>2.89 (0.19)</td> <td align='right'>2.8880869184504</td> <td align='right'>2.28839857017432</td> <td align='right'>3.45426394329017</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>1</td> <td align='right'>2.12 (0.13)</td> <td align='right'>2.12325304813994</td> <td align='right'>1.69231118491843</td> <td align='right'>2.5733077597614</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>0.963</td> <td align='right'>1.24 (0.23)</td> <td align='right'>1.24785378432459</td> <td align='right'>0.597835811507373</td> <td align='right'>1.99232103267378</td> </tr>
+<tr> <td align='left'>Being Bullied</td> <td align='right'>0.486</td> <td align='right'>0.38 (0.06)</td> <td align='right'>0.38047622712678</td> <td align='right'>0.199698820457025</td> <td align='right'>0.550306657062239</td> </tr>
+<tr> <td align='left'>Age</td> <td align='right'>0.514</td> <td align='right'>0.31 (0.09)</td> <td align='right'>0.300811451253333</td> <td align='right'>0.078587852657844</td> <td align='right'>0.608601583998368</td> </tr>
+<tr> <td align='left'>Biological Sex</td> <td align='right'>0.153</td> <td align='right'>0.06 (0.06)</td> <td align='right'>0.061154337203816</td> <td align='right'>–0.101747794701831</td> <td align='right'>0.21566345985821</td> </tr>
+<tr> <td align='left'>Bullying</td> <td align='right'>0.226</td> <td align='right'>–0.14 (0.08)</td> <td align='right'>–0.140669158419088</td> <td align='right'>–0.374025648855415</td> <td align='right'>0.112834638154709</td> </tr>
+<tr> <td align='left'>Predicting Suicidal Ideation Problem</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>1</td> <td align='right'>7.38 (0.21)</td> <td align='right'>7.36908481819576</td> <td align='right'>6.76432848683925</td> <td align='right'>8.12502755649417</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>1</td> <td align='right'>4.48 (0.26)</td> <td align='right'>4.47221954017297</td> <td align='right'>3.69605631065175</td> <td align='right'>5.19538292133734</td> </tr>
+<tr> <td align='left'>Perceived Stress</td> <td align='right'>1</td> <td align='right'>2.54 (0.25)</td> <td align='right'>2.5377992856734</td> <td align='right'>1.75823960941405</td> <td align='right'>3.34194756062182</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>0.997</td> <td align='right'>1.13 (0.14)</td> <td align='right'>1.12777751595327</td> <td align='right'>0.586858065416269</td> <td align='right'>1.55556234520991</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>0.984</td> <td align='right'>0.95 (0.19)</td> <td align='right'>0.941382161900757</td> <td align='right'>0.287872250524147</td> <td align='right'>1.47812372868224</td> </tr>
+<tr> <td align='left'>Bullying</td> <td align='right'>0.564</td> <td align='right'>0.15 (0.07)</td> <td align='right'>0.153133518077507</td> <td align='right'>–0.0792731756691706</td> <td align='right'>0.367920287160172</td> </tr>
+<tr> <td align='left'>Biological Sex</td> <td align='right'>0.568</td> <td align='right'>0.14 (0.05)</td> <td align='right'>0.133187321971417</td> <td align='right'>7.12383732182679e-05</td> <td align='right'>0.319280143905561</td> </tr>
+<tr> <td align='left'>Being Bullied</td> <td align='right'>0.323</td> <td align='right'>0.05 (0.06)</td> <td align='right'>0.0550727726370885</td> <td align='right'>–0.144344410648747</td> <td align='right'>0.221825035213204</td> </tr>
+<tr> <td align='left'>Age</td> <td align='right'>0.967</td> <td align='right'>–0.81 (0.10)</td> <td align='right'>–0.810750548101869</td> <td align='right'>–1.13925357094763</td> <td align='right'>–0.489799023808748</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

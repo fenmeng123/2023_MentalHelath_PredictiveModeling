@@ -58,7 +58,7 @@ ReliaRes %>% rename("Crobach's Alpha"=raw_alpha,
                     "McDonald's Omega_t"=omega_t) -> ReliaRes
 print(ReliaRes)
 print_table(ReliaRes,file = '../Res_2_Results/DescriptiveStatRes/Res_CIER_Reliabilty.doc',
-            digits = 4,title = 'Reliability Analysis of Psychometric Scales')
+            digits = 4,title = 'C/IER: Reliability Analysis of Psychometric Scales')
 
 
 # Non-C/IER Sample ----------------------------------------------------------
@@ -115,4 +115,4 @@ ReliaRes %>% rename("Crobach's Alpha"=raw_alpha,
                     "McDonald's Omega_t"=omega_t) -> ReliaRes
 print(ReliaRes)
 print_table(ReliaRes,file = '../Res_2_Results/DescriptiveStatRes/Res_NonCIER_Reliabilty.doc',
-            digits = 4,title = 'Reliability Analysis of Psychometric Scales')
+            digits = 4,title = 'Non-C/IER: Reliability Analysis of Psychometric Scales')

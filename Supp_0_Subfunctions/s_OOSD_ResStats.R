@@ -109,7 +109,8 @@ Coef.Transform <- function(Coef){
   return(Coef)
 }
 Get.Coef.Table <- function(Res){
-  Res %>% Coef.Transform() %>% lapply(as.numeric) %>% as.data.frame() %>%
+  Res %>% Coef.Transform() %>% lapply(as.numeric) %>% as.data.frame() -> Coef_long
+  Coef_long %>%
     psych::describe() %>% as.data.frame() %>%
     select(c(mean,sd,median,min,max)) -> Coef_Table
   Coef_Table$Predictors <- rownames(Coef_Table)
@@ -121,9 +122,24 @@ Get.Coef.Table <- function(Res){
     str_replace('IAT_Sum','Internet Addiction') %>%
     str_replace('SelfInjury_Sum','Non-suicidal Self-injury') %>%
     str_replace('BeBully_Bin','Be Bullied')%>%
-    str_replace('Grade','Education Level (Grade)') %>%
+    str_replace('Grade','Age') %>%
     str_replace('Gender_Girl','Biological Sex') %>%
     str_replace('Bully_Bin','Bully') -> Coef_Table$Predictors
-  Coef_Table <- select(Coef_Table,c(Predictors,everything()))
+  str_c('[',
+        sprintf('%.2f',sapply(Coef_long, function(.) quantile(.,0.025))),
+        ', ',
+        sprintf('%.2f',sapply(Coef_long, function(.) quantile(.,0.975))),
+        ']') -> Coef_Table$`95% CI`
+  
+  # boot_mean <- function(data) mean(data)
+  # boot.obj <- boot::boot(Coef_long[[1]],boot_mean,R = 10000)
+  # boot.ci.obj <- boot::boot.ci(boot.obj, conf = 0.95, type = 'basic')
+  Coef_Table$Importance = sprintf('%.2f',Coef_Table$mean)
+  Coef_Table <- unite(Coef_Table,
+                      `Importance [95% CI]`,
+                      c(Importance,`95% CI`),
+                      sep = ' ')
+  Coef_Table <- select(Coef_Table,c(Predictors,`Importance [95% CI]`,everything()))
+  Coef_Table <- arrange(Coef_Table,desc(mean))
   return(Coef_Table)
 }

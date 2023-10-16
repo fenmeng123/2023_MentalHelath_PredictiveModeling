@@ -6,6 +6,9 @@ rm(list=ls())
 gc()
 set.wd()
 source('../Supp_0_Subfunctions/s_OOSD_ResStats.R')
+sink('../Res_1_Logs/Log_RepVis_7_OOSD_Dep_Results.txt',
+     append = F,
+     type = 'output')
 
 anchor <- read.xlsx('../Res_2_Results/ResML_OOSD_Dep/Res_OOSD_weighted_Dep.xlsx')
 
@@ -34,9 +37,16 @@ Get.Res.Sum(ResUp_Ext) %>%
 Get.Res.Sum(anchor_Ext) %>%
   merge(ResDown_Ext_Table,by = 'Index') %>%
   merge(ResUp_Ext_Table,by='Index') %>%
-  arrange(factor(Index,levels=c('ACC','Sensitivity','Specificity',
-                                'Balanced ACC','F1-score','PPV','NPV'))) %>%
-  print_table(file = '../Res_2_Results/ResML_OOSD_Dep/Res_SummaryT_OOSD_Dep.doc')
+  arrange(factor(Index,levels=c('ACC','Balanced ACC','Sensitivity','Specificity',
+                                'F1-score','PPV','NPV'))) %>%
+  print_table(file = '../Res_2_Results/ResML_OOSD_Dep/Res_SummaryT_OOSD_Dep.doc',
+              row.names = F)
+Get.Res.Sum(anchor_Ext) %>%
+  merge(ResDown_Ext_Table,by = 'Index') %>%
+  merge(ResUp_Ext_Table,by='Index') %>%
+  arrange(factor(Index,levels=c('ACC','Balanced ACC','Sensitivity','Specificity',
+                                'F1-score','PPV','NPV'))) %>%
+  export('../Res_2_Results/ResML_OOSD_Dep/Res_SummaryT_OOSD_Dep.rda')
 
 # Ridge Plot for Balanced ACC ---------------------------------------------
 ResDown_Ext$Method <- 'Downsampling'
@@ -114,11 +124,16 @@ ResDown %>% select(-c(X1)) -> ResDown
 ResUp  %>% select(-c(X1)) -> ResUp
 ResDown %>% Get.Coef.Table() %>%
   print_table(digits = 2,
+              row.names = F,
             file = '../Res_2_Results/ResML_OOSD_Dep/Coef_Downsample_SummaryT_Dep.doc')
 ResUp %>% Get.Coef.Table() %>%
   print_table(digits = 2,
+              row.names = F,
               file = '../Res_2_Results/ResML_OOSD_Dep/Coef_Upsample_SummaryT_Dep.doc')
-
+ResDown %>% Get.Coef.Table() %>% 
+  export('../Res_2_Results/ResML_OOSD_Dep/Coef_Downsample_SummaryT_Dep.rda')
+ResUp %>% Get.Coef.Table() %>% 
+  export('../Res_2_Results/ResML_OOSD_Dep/Coef_Upsample_SummaryT_Dep.rda')
 # Compare Feature Importance: Ridges Plot ---------------------------------
 ResDown %>% Coef.Transform() %>% 
   pivot_longer(cols = everything(),
@@ -178,3 +193,5 @@ ggsave('../Res_2_Results/ResML_OOSD_Dep/Res_CoefRidges_OOSD_Dep.svg',
        width = 8.74,
        height = 7.72,
        plot = p)
+
+sink()

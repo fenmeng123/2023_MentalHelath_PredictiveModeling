@@ -66,9 +66,12 @@ pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
              names_to = 'Predictors') %>%
   select(`Feature Importance`,Predictors,Group) -> data_coef
 data_coef$Predictors <- factor(data_coef$Predictors,
-                               levels=c('Anxiety','Perceived Stress','Academic Burn-out',
+                               levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
-                                        'Be Bullied','Education Level (Grade)'))
+                                        'Be Bullied','Education Level (Grade)'),
+                               labels = c('Anxiety','Perceived Stress','Academic Burn-out',
+                                          'Internet Addiction','Non-suicidal Self-injury',
+                                          'Being Bullied','Age'))
 data_coef %>%
   ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+
@@ -151,7 +154,8 @@ Subgroup = c('PrimarySchool','JuniorSchool','SeniorSchool')
 Input_Dir = '../Res_2_Results/ResML_Subgroup_Dep/'
 data <- Extract.Res.Coef(MdlMethod,Subgroup,Input_Dir)
 data$Group <- factor(data$Group,
-                     levels = c('PrimarySchool','JuniorSchool','SeniorSchool'))
+                     levels = c('PrimarySchool','JuniorSchool','SeniorSchool'),
+                     labels = c('Primary School','Middle School','High School'))
 pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
                            `Internet Addiction`,`Non-suicidal Self-injury`,
                            `Be Bullied`,`Education Level (Grade)`),
@@ -159,9 +163,12 @@ pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
              names_to = 'Predictors') %>%
   select(`Feature Importance`,Predictors,Group) -> data_coef
 data_coef$Predictors <- factor(data_coef$Predictors,
-                               levels=c('Anxiety','Perceived Stress','Academic Burn-out',
+                               levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
-                                        'Be Bullied','Education Level (Grade)'))
+                                        'Be Bullied','Education Level (Grade)'),
+                               labels = c('Anxiety','Perceived Stress','Academic Burn-out',
+                                          'Internet Addiction','Non-suicidal Self-injury',
+                                          'Being Bullied','Age'))
 data_coef %>%
   ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+
@@ -203,45 +210,45 @@ data %>%
         axis.text.y = element_text(angle=90,hjust=0.5,size = 7))+
   xlim(85.4,87.6)+
   xlab('Balanced ACC (%)')+
-  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='PrimarySchool'])*100),
+  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Primary School'])*100),
              colour=ggpubr::get_palette("npg",5)[5],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
-  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='JuniorSchool'])*100),
+  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Middle School'])*100),
              colour=ggpubr::get_palette("npg",5)[4],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
-  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='SeniorSchool'])*100),
+  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='High School'])*100),
              colour=ggpubr::get_palette("npg",5)[3],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
   annotate('text',
-           x=mean(data$`Balanced ACC`[data$Group=='PrimarySchool'])*100,
+           x=mean(data$`Balanced ACC`[data$Group=='Primary School'])*100,
            y=3.5,
            colour = ggpubr::get_palette("npg",5)[5],
            size=4,
            hjust=1,
            label=sprintf("Primary School=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='PrimarySchool'])*100))+
+                         mean(data$`Balanced ACC`[data$Group=='Primary School'])*100))+
   annotate('text',
-           x=mean(data$`Balanced ACC`[data$Group=='JuniorSchool'])*100-0.01,
+           x=mean(data$`Balanced ACC`[data$Group=='Middle School'])*100-0.01,
            y=2.7,
            colour = ggpubr::get_palette("npg",5)[4],
            size=4,
            hjust=1,
            label=sprintf("Junior School=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='JuniorSchool'])*100))+
+                         mean(data$`Balanced ACC`[data$Group=='Middle School'])*100))+
   annotate('text',
-           x=mean(data$`Balanced ACC`[data$Group=='SeniorSchool'])*100+0.01,
+           x=mean(data$`Balanced ACC`[data$Group=='High School'])*100+0.01,
            y=1.85,
            colour = ggpubr::get_palette("npg",5)[3],
            size=4,
            hjust=0,
            label=sprintf("Senior School=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='SeniorSchool'])*100))->p
+                         mean(data$`Balanced ACC`[data$Group=='High School'])*100))->p
 
 p
 ggsave('../Res_2_Results/Res_PhaseSubgroup_BalaACC_Dep.png',
@@ -268,9 +275,12 @@ pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
              names_to = 'Predictors') %>%
   select(`Feature Importance`,Predictors,Group) -> data_coef
 data_coef$Predictors <- factor(data_coef$Predictors,
-                               levels=c('Anxiety','Perceived Stress','Academic Burn-out',
+                               levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
-                                        'Be Bullied','Education Level (Grade)'))
+                                        'Be Bullied','Education Level (Grade)'),
+                               labels = c('Anxiety','Perceived Stress','Academic Burn-out',
+                                          'Internet Addiction','Non-suicidal Self-injury',
+                                          'Being Bullied','Age'))
 data_coef %>%
   ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+

@@ -3,8 +3,10 @@ library(openxlsx)
 library(ggridges)
 library(svglite)
 set.wd()
-
-res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Dep/ResML_L2Logit_RFECV_IterNum1000.xlsx')
+sink('../Res_1_Logs/Log_OptimalLambda_Dep.txt',
+     type = 'output',
+     append = F)
+res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Dep/ResML_L2Logit_RFECV_IterNum1000_Dep.xlsx')
 # Find the best hyper parameter -------------------------------------------
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
@@ -14,7 +16,7 @@ Opt_lambda = stats_res$Lambda2[which.max(stats_res$BalancedACC)]
 Opt_balacc = stats_res$BalancedACC[which.max(stats_res$BalancedACC)]
 cat(sprintf('The Best L2 = %.6f (Balanced ACC=%.4f)\n',Opt_lambda,Opt_balacc))
 L2_str = sprintf('%.4f',Opt_lambda)
-
+annotate_text = bquote('Initial'~lambda[2] == .(round(Opt_lambda,digits = 6)))
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
   summarise(BalancedACC = mean(balacc),
@@ -62,8 +64,8 @@ res %>% select(-X1) %>%
     linewidth = 1,
   ) +
   annotate(geom = "text", x = 0.6, y = 0.91,
-           label = expression(paste(lambda[2],'=0.3448')), hjust = "left") -> p
-
+           label = annotate_text, hjust = "left") -> p
+# p
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Dep/Res_Lineplot_HyperparaOptim_Dep.png',
        plot = p)
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Dep/Res_Lineplot_HyperparaOptim_Dep.svg',
@@ -71,7 +73,7 @@ ggsave('../Res_2_Results/ResML_OptimeHyperpara_Dep/Res_Lineplot_HyperparaOptim_D
 
 # Plot Fine Tuning Result -------------------------------------------------
 
-res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Dep/ResML_L2Logit_FineTune_IterNum100.xlsx')
+res <- read.xlsx('../Res_2_Results/ResML_OptimeHyperpara_Dep/ResML_L2Logit_FineTune_IterNum100_Dep.xlsx')
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
   summarise(BalancedACC = mean(balacc),
@@ -79,6 +81,8 @@ res %>% select(-X1) %>%
 Opt_lambda = stats_res$Lambda2[which.max(stats_res$BalancedACC)]
 Opt_balacc = stats_res$BalancedACC[which.max(stats_res$BalancedACC)]
 cat(sprintf('Fine-tuning: the Best L2 = %.6f (Balanced ACC=%.4f)\n',Opt_lambda,Opt_balacc))
+OptL2_str = sprintf('%.4f',Opt_lambda)
+annotate_text = bquote('Optimal'~lambda[2] == .(round(Opt_lambda,digits = 6)))
 
 res %>% select(-X1) %>%
   group_by(Lambda2)%>%
@@ -105,9 +109,12 @@ res %>% select(-X1) %>%
              size=4,
              colour = 'red',
              shape = 1,
-             stroke = 2) -> p
+             stroke = 2)+
+  annotate(geom = "text", x = 0.185, y = 0.86755,
+           label = annotate_text, hjust = "left") -> p
+# p
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Dep/Res_Lineplot_FineTune_Dep.png',
        plot = p)
 ggsave('../Res_2_Results/ResML_OptimeHyperpara_Dep/Res_Lineplot_FineTune_Dep.svg',
        plot = p)
-
+sink()

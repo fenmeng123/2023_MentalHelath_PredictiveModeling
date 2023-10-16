@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p>Table S3. Internal Sample Reliability Analysis: Influences of C/IERs</p>
+<table>
+<thead>
+<tr> <th align='left'>Behavioral Problems</th> <th align='right'>Assessment</th> <th align='right'>Crobach's Alpha [95% CI]</th> <th align='right'>McDonald's Omega_h</th> <th align='right'>Signal/Noise Ratio</th> <th align='right'>Guttman's Lambda 6</th> <th align='right'>Corrected Item-whole Correlation</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Full Internal Sample N=160,962</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>Stress</td> <td align='right'>PSS</td> <td align='right'>0.8928 [0.8920, 0.8936]</td> <td align='right'>0.8930</td> <td align='right'>8.2628</td> <td align='right'>0.9051</td> <td align='right'>0.3711</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>ACBI</td> <td align='right'>0.9084 [0.9077, 0.9090]</td> <td align='right'>0.9114</td> <td align='right'>10.2403</td> <td align='right'>0.9233</td> <td align='right'>0.3903</td> </tr>
+<tr> <td align='left'>IAT</td> <td align='right'>IAT</td> <td align='right'>0.9312 [0.9307, 0.9317]</td> <td align='right'>0.9350</td> <td align='right'>14.2343</td> <td align='right'>0.9404</td> <td align='right'>0.4158</td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>SAS</td> <td align='right'>0.8661 [0.8651, 0.8671]</td> <td align='right'>0.8787</td> <td align='right'>8.2002</td> <td align='right'>0.9084</td> <td align='right'>0.2908</td> </tr>
+<tr> <td align='left'>Depression</td> <td align='right'>CES-D</td> <td align='right'>0.8319 [0.8307, 0.8331]</td> <td align='right'>0.8444</td> <td align='right'>5.3771</td> <td align='right'>0.8498</td> <td align='right'>0.3497</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>ANSAQ</td> <td align='right'>0.9048 [0.9041, 0.9055]</td> <td align='right'>0.9132</td> <td align='right'>10.3119</td> <td align='right'>0.9123</td> <td align='right'>0.5340</td> </tr>
+<tr> <td align='left'>Suicidal Ideation</td> <td align='right'>PANSI</td> <td align='right'>0.8996 [0.8989, 0.9003]</td> <td align='right'>0.9025</td> <td align='right'>10.9556</td> <td align='right'>0.9469</td> <td align='right'>0.4390</td> </tr>
+<tr> <td align='left'>Bullying/Being Bullied</td> <td align='right'>OBVQ-R</td> <td align='right'>0.4666 [0.4612, 0.4720]</td> <td align='right'>0.4989</td> <td align='right'>0.9956</td> <td align='right'>0.3324</td> <td align='right'>0.3324</td> </tr>
+<tr> <td align='left'>C/IERs N=10,297</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>Stress</td> <td align='right'>PSS</td> <td align='right'>0.5993 [0.5879, 0.6106]</td> <td align='right'>0.1631</td> <td align='right'>1.4844</td> <td align='right'>0.8396</td> <td align='right'>0.0959</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>ACBI</td> <td align='right'>0.7518 [0.7447, 0.7587]</td> <td align='right'>0.0773</td> <td align='right'>2.9810</td> <td align='right'>0.8775</td> <td align='right'>0.1571</td> </tr>
+<tr> <td align='left'>IAT</td> <td align='right'>IAT</td> <td align='right'>0.9779 [0.9773, 0.9786]</td> <td align='right'>0.9782</td> <td align='right'>44.6243</td> <td align='right'>0.9808</td> <td align='right'>0.6905</td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>SAS</td> <td align='right'>0.8249 [0.8200, 0.8298]</td> <td align='right'>0.8323</td> <td align='right'>4.9503</td> <td align='right'>0.9364</td> <td align='right'>0.1984</td> </tr>
+<tr> <td align='left'>Depression</td> <td align='right'>CES-D</td> <td align='right'>0.7765 [0.7700, 0.7829]</td> <td align='right'>0.8272</td> <td align='right'>3.6596</td> <td align='right'>0.8917</td> <td align='right'>0.2679</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>ANSAQ</td> <td align='right'>0.9383 [0.9365, 0.9401]</td> <td align='right'>0.9398</td> <td align='right'>15.4638</td> <td align='right'>0.9442</td> <td align='right'>0.6321</td> </tr>
+<tr> <td align='left'>Suicidal Ideation</td> <td align='right'>PANSI</td> <td align='right'>0.6741 [0.6647, 0.6832]</td> <td align='right'>0.1910</td> <td align='right'>2.1932</td> <td align='right'>0.9170</td> <td align='right'>0.1354</td> </tr>
+<tr> <td align='left'>Bullying/Being Bullied</td> <td align='right'>OBVQ-R</td> <td align='right'>0.8073 [0.7997, 0.8146]</td> <td align='right'>0.8083</td> <td align='right'>4.2155</td> <td align='right'>0.6782</td> <td align='right'>0.6782</td> </tr>
+<tr> <td align='left'>Non-C/IERs N=150,665</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>Stress</td> <td align='right'>PSS</td> <td align='right'>0.8928 [0.8920, 0.8936]</td> <td align='right'>0.8930</td> <td align='right'>8.2628</td> <td align='right'>0.9051</td> <td align='right'>0.3711</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>ACBI</td> <td align='right'>0.9084 [0.9077, 0.9090]</td> <td align='right'>0.9114</td> <td align='right'>10.2403</td> <td align='right'>0.9233</td> <td align='right'>0.3903</td> </tr>
+<tr> <td align='left'>IAT</td> <td align='right'>IAT</td> <td align='right'>0.9312 [0.9307, 0.9317]</td> <td align='right'>0.9350</td> <td align='right'>14.2343</td> <td align='right'>0.9404</td> <td align='right'>0.4158</td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>SAS</td> <td align='right'>0.8661 [0.8651, 0.8671]</td> <td align='right'>0.8787</td> <td align='right'>8.2002</td> <td align='right'>0.9084</td> <td align='right'>0.2908</td> </tr>
+<tr> <td align='left'>Depression</td> <td align='right'>CES-D</td> <td align='right'>0.8319 [0.8307, 0.8331]</td> <td align='right'>0.8444</td> <td align='right'>5.3771</td> <td align='right'>0.8498</td> <td align='right'>0.3497</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>ANSAQ</td> <td align='right'>0.9048 [0.9041, 0.9055]</td> <td align='right'>0.9132</td> <td align='right'>10.3119</td> <td align='right'>0.9123</td> <td align='right'>0.5340</td> </tr>
+<tr> <td align='left'>Suicidal Ideation</td> <td align='right'>PANSI</td> <td align='right'>0.8996 [0.8989, 0.9003]</td> <td align='right'>0.9025</td> <td align='right'>10.9556</td> <td align='right'>0.9469</td> <td align='right'>0.4390</td> </tr>
+<tr> <td align='left'>Bullying/Being Bullied</td> <td align='right'>OBVQ-R</td> <td align='right'>0.4666 [0.4612, 0.4720]</td> <td align='right'>0.4989</td> <td align='right'>0.9956</td> <td align='right'>0.3324</td> <td align='right'>0.3324</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>
