@@ -8,7 +8,9 @@ gc()
 set.wd()
 source('../Supp_0_Subfunctions/s_OOSD_ResStats.R')
 source('../Supp_0_Subfunctions/s_SubG_ResStats.R')
-
+sink('../Res_1_Logs/Log_RepVis_9_SubG_Dep_Results.txt',
+     append = F,
+     type = 'output')
 # Generate Coef Comparison Summary Table ----------------------------------
 
 MdlMethod = 'DownSampMdl'
@@ -91,7 +93,7 @@ data_coef %>%
                       legend.position = 'top',
                       legend.title = element_blank())+
   ggsci::scale_fill_npg() -> p
-p
+# p
 ggsave('../Res_2_Results/Res_SexSubgroup_Coef_Dep.png',
        width = 8,
        height = 6,
@@ -137,7 +139,7 @@ data %>%
            hjust=1,
            label=sprintf("Girl=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='Girl'])*100)) -> p
-p
+# p
 ggsave('../Res_2_Results/Res_SexSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
@@ -188,7 +190,7 @@ data_coef %>%
                       legend.position = 'top',
                       legend.title = element_blank())+
   scale_fill_manual(values=ggpubr::get_palette("npg",5)[-1:-2]) -> p
-p
+# p
 ggsave('../Res_2_Results/Res_PhaseSubgroup_Coef_Dep.png',
        width = 8,
        height = 6,
@@ -250,7 +252,7 @@ data %>%
            label=sprintf("Senior School=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='High School'])*100))->p
 
-p
+# p
 ggsave('../Res_2_Results/Res_PhaseSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
@@ -300,7 +302,7 @@ data_coef %>%
                       legend.position = 'top',
                       legend.title = element_blank())+
   scale_fill_manual(values=ggpubr::get_palette("npg",9)[-1:-5])+ylim(0,8) -> p
-p
+# p
 ggsave('../Res_2_Results/Res_GeoAreaSubgroup_Coef_Dep.png',
        width = 8,
        height = 6,
@@ -375,7 +377,7 @@ data %>%
            label=sprintf("Western China=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='Western'])*100)) ->p
 
-p
+# p
 ggsave('../Res_2_Results/Res_GeoAreaSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
@@ -385,3 +387,5 @@ ggsave('../Res_2_Results/Res_GeoAreaSubgroup_BalaACC_Dep.svg',
        width = 6,
        height = 4,
        plot = p)
+
+sink()

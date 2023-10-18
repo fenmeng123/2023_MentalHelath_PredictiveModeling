@@ -65,7 +65,7 @@ all.dat %>% rename(
   `Educational Stage` = StudyPhase,
   `Geographic Area` = Region_4L,
   `C/IER Flag` = CIER_Flag,
-  `Summed Itra-Individual Variance` = IRV_WSum,
+  `Weighted Itra-Individual Variance` = IRV_WSum,
   `No. IRV=0` = IRV_Num,
   `Summed Max Longstring` = MLS_Sum,
   `Even-Odd Consistence Index` = EOC,
@@ -88,7 +88,7 @@ bivar.T <- compareGroups(SampleType~`Biological Sex`+
                            `Educational Stage`+
                            `Geographic Area`+
                            `C/IER Flag`+
-                           `Summed Itra-Individual Variance`+
+                           `Weighted Itra-Individual Variance`+
                            `Summed Max Longstring`+
                            `Even-Odd Consistence Index`+
                            `Squared Mahalanobis Distance`+
@@ -104,7 +104,7 @@ bivar.T <- compareGroups(SampleType~`Biological Sex`+
                            `Being Bullied`,
                          data = all.dat,
                          method = NA,
-                         include.miss = TRUE)
+                         include.miss = F)
 demo.T <- createTable(bivar.T, 
                       show.n = F, show.ci = F,show.ratio = F,
                       digits = 2)

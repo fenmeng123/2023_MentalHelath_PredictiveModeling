@@ -1,8 +1,26 @@
 library(bruceR)
 set.wd()
-
+rm(list=ls())
+gc()
 ResDir = '../Res_2_Results/'
-
+if (!dir.exists('../Res_4_Reports_for_Manuscript/Figure1/')){
+  dir.create('../Res_4_Reports_for_Manuscript/Figure1/',recursive = T)
+}
+if (!dir.exists('../Res_4_Reports_for_Manuscript/Figure2/')){
+  dir.create('../Res_4_Reports_for_Manuscript/Figure2/',recursive = T)
+}
+if (!dir.exists('../Res_4_Reports_for_Manuscript/Figure3/')){
+  dir.create('../Res_4_Reports_for_Manuscript/Figure3/',recursive = T)
+}
+if (!dir.exists('../Res_4_Reports_for_Manuscript/Figure4/')){
+  dir.create('../Res_4_Reports_for_Manuscript/Figure4/',recursive = T)
+}
+if (!dir.exists('../Res_4_Reports_for_Manuscript/FigureS1/')){
+  dir.create('../Res_4_Reports_for_Manuscript/FigureS1/',recursive = T)
+}
+if (!dir.exists('../Res_4_Reports_for_Manuscript/FigureS2/')){
+  dir.create('../Res_4_Reports_for_Manuscript/FigureS2/',recursive = T)
+}
 fig.comp.ls = list(Figure1 = c('Figure_1_Analysis_Flowchart.wmf'),
                    Figure2 = c('Res_Boxplot_CompMdl_Dep.svg',
                                'Res_Boxplot_CompMdl_Suicide.svg',
@@ -74,7 +92,7 @@ fig.name.ls = list(Figure1 = 'Figure_1_@.wmf',
 T_Figures = data.frame()
 
 for (i in names(fig.comp.ls)){
-  out.folder = normalizePath(paste(ResDir,i,sep = '/'),
+  out.folder = normalizePath(paste('../Res_4_Reports_for_Manuscript',i,sep = '/'),
                              winslash = '/',
                              mustWork = F)
   if(!dir.exists(out.folder)){
@@ -110,8 +128,18 @@ T_Figures$File.Name %>%
   stringr::str_remove_all('S\\d_') %>%
   stringr::str_remove_all('_[L,R]') %>%
   stringr::str_replace_all('-',': ') -> T_Figures$Comp.Name
-export(T_Figures,'../Res_2_Results/Table_FiguresSummary.xlsx')
 for (i in 1:nrow(T_Figures)){
-  file.rename(T_Figures$Source[i],
+  file.copy(T_Figures$Source[i],
             T_Figures$Destination[i])
 }
+
+for (i in 1:nrow(T_Figures)){
+  unlink(T_Figures$Source[i])
+}
+
+T_Figures$Source %>%
+  str_remove_all(dirname(getwd())) -> T_Figures$Source
+T_Figures$Destination %>%
+  str_remove_all(dirname(getwd())) -> T_Figures$Destination
+export(T_Figures,'../Res_4_Reports_for_Manuscript/Table_FiguresSummary.xlsx')
+

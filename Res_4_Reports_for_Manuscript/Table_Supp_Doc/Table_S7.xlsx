@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p>Table S7. External Sample Prediction Performance: Comparison of data balancing methods</p>
+<table>
+<thead>
+<tr> <th align='left'>Model Evaluation Indices</th> <th align='right'>Inverse-proporation Weighted</th> <th align='right'>Down-sampling (subset)</th> <th align='right'>Up-sampling (boostrap)</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'></td> <td align='right'>Predicting Depression Problem</td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>ACC</td> <td align='right'>85.20%</td> <td align='right'>85.12% (0.09%) [84.83%, 85.43%]</td> <td align='right'>85.21% (0.03%) [85.13%, 85.29%]</td> </tr>
+<tr> <td align='left'>Balanced ACC</td> <td align='right'>86.86%</td> <td align='right'>86.87% (0.01%) [86.83%, 86.91%]</td> <td align='right'>86.85% (0.01%) [86.84%, 86.87%]</td> </tr>
+<tr> <td align='left'>Sensitivity</td> <td align='right'>88.81%</td> <td align='right'>88.94% (0.11%) [88.57%, 89.29%]</td> <td align='right'>88.79% (0.03%) [88.69%, 88.91%]</td> </tr>
+<tr> <td align='left'>Specificity</td> <td align='right'>84.90%</td> <td align='right'>84.81% (0.11%) [84.46%, 85.17%]</td> <td align='right'>84.91% (0.03%) [84.81%, 85.00%]</td> </tr>
+<tr> <td align='left'>F1-score</td> <td align='right'>0.4799</td> <td align='right'>0.4789 (0.0012) [0.4749, 0.4830]</td> <td align='right'>0.4799 (0.0003) [0.4788, 0.4809]</td> </tr>
+<tr> <td align='left'>PPV</td> <td align='right'>32.87%</td> <td align='right'>32.77% (0.13%) [32.36%, 33.21%]</td> <td align='right'>32.88% (0.04%) [32.76%, 32.99%]</td> </tr>
+<tr> <td align='left'>NPV</td> <td align='right'>98.91%</td> <td align='right'>98.93% (0.01%) [98.89%, 98.96%]</td> <td align='right'>98.91% (0.00%) [98.90%, 98.92%]</td> </tr>
+<tr> <td align='left'></td> <td align='right'>Predicting Suicidal Ideation Problem</td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>ACC</td> <td align='right'>85.72%</td> <td align='right'>85.71% (0.17%) [85.20%, 86.29%]</td> <td align='right'>85.73% (0.03%) [85.64%, 85.84%]</td> </tr>
+<tr> <td align='left'>Balanced ACC</td> <td align='right'>85.82%</td> <td align='right'>85.81% (0.02%) [85.73%, 85.86%]</td> <td align='right'>85.82% (0.01%) [85.80%, 85.84%]</td> </tr>
+<tr> <td align='left'>Sensitivity</td> <td align='right'>85.92%</td> <td align='right'>85.91% (0.18%) [85.24%, 86.54%]</td> <td align='right'>85.93% (0.04%) [85.80%, 86.04%]</td> </tr>
+<tr> <td align='left'>Specificity</td> <td align='right'>85.72%</td> <td align='right'>85.71% (0.18%) [85.14%, 86.34%]</td> <td align='right'>85.72% (0.03%) [85.62%, 85.84%]</td> </tr>
+<tr> <td align='left'>F1-score</td> <td align='right'>0.3404</td> <td align='right'>0.3402 (0.0022) [0.3339, 0.3477]</td> <td align='right'>0.3404 (0.0004) [0.3393, 0.3418]</td> </tr>
+<tr> <td align='left'>PPV</td> <td align='right'>21.22%</td> <td align='right'>21.21% (0.18%) [20.69%, 21.84%]</td> <td align='right'>21.23% (0.03%) [21.13%, 21.34%]</td> </tr>
+<tr> <td align='left'>NPV</td> <td align='right'>99.27%</td> <td align='right'>99.27% (0.01%) [99.24%, 99.30%]</td> <td align='right'>99.27% (0.00%) [99.26%, 99.27%]</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

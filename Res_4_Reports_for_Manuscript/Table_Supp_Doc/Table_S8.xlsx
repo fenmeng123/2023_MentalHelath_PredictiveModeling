@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p>Table S8. External Sample Feature Importance: Comparison of data balancing methods</p>
+<table>
+<thead>
+<tr> <th align='left'>Predictors</th> <th align='right'>Depression</th> <th align='right'>Suicidal Ideation</th> <th align='right'>Depression</th> <th align='right'>Suicidal Ideation</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Features</td> <td align='right'>Importance [95% CI] (down-sampling)</td> <td align='right'></td> <td align='right'>Importance [95% CI] (up-sampling)</td> <td align='right'></td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>8.10 [7.92, 8.27]</td> <td align='right'>8.35 [7.99, 8.75]</td> <td align='right'>9.33 [9.27, 9.40]</td> <td align='right'>8.35 [8.29, 8.41]</td> </tr>
+<tr> <td align='left'>Perceived Stress</td> <td align='right'>3.89 [3.71, 4.06]</td> <td align='right'>2.42 [2.09, 2.75]</td> <td align='right'>4.28 [4.19, 4.37]</td> <td align='right'>2.41 [2.33, 2.50]</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>2.80 [2.61, 2.97]</td> <td align='right'>0.75 [0.45, 1.02]</td> <td align='right'>2.88 [2.82, 2.94]</td> <td align='right'>0.74 [0.68, 0.80]</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>2.08 [1.94, 2.22]</td> <td align='right'>1.17 [0.95, 1.37]</td> <td align='right'>2.10 [2.05, 2.14]</td> <td align='right'>1.17 [1.12, 1.22]</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>1.33 [1.05, 1.59]</td> <td align='right'>4.94 [4.46, 5.48]</td> <td align='right'>1.17 [1.11, 1.22]</td> <td align='right'>4.95 [4.90, 5.01]</td> </tr>
+<tr> <td align='left'>Be Bullied</td> <td align='right'>0.39 [0.33, 0.45]</td> <td align='right'>n.a.</td> <td align='right'>0.35 [0.34, 0.37]</td> <td align='right'>n.a.</td> </tr>
+<tr> <td align='left'>Age</td> <td align='right'>0.31 [0.22, 0.42]</td> <td align='right'>–0.88 [-1.02, -0.74]</td> <td align='right'>0.30 [0.27, 0.32]</td> <td align='right'>–0.88 [-0.91, -0.85]</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

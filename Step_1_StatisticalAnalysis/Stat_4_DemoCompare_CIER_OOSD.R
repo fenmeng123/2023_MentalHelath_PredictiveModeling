@@ -38,7 +38,7 @@ data %>% rename(
   `Educational Stage` = StudyPhase,
   `Geographic Area` = Region_4L,
   `C/IER Flag` = CIER_Flag,
-  `Summed Itra-Individual Variance` = IRV_WSum,
+  `Weighted Itra-Individual Variance` = IRV_WSum,
   `No. IRV=0` = IRV_Num,
   `Summed Max Longstring` = MLS_Sum,
   `Even-Odd Consistence Index` = EOC,
@@ -62,7 +62,7 @@ saveRDS(data,'../Res_3_IntermediateData/179w_recoded_QC.rds')
 bivar.T <- compareGroups(CIER_Group~`Biological Sex`+
                            `Educational Stage`+
                            `Geographic Area`+
-                           `Summed Itra-Individual Variance`+
+                           `Weighted Itra-Individual Variance`+
                            `Summed Max Longstring`+
                            `Even-Odd Consistence Index`+
                            `Squared Mahalanobis Distance`+

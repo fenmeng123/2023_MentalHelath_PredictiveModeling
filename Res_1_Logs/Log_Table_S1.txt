@@ -1,0 +1,18 @@
+
+	Pearson's Chi-squared test with Yates' continuity correction
+
+data:  gender.crosstab
+X-squared = 176.33, df = 1, p-value < 2.2e-16
+
+
+	Pearson's Chi-squared test
+
+data:  phase.crosstab
+X-squared = 1198.1, df = 2, p-value < 2.2e-16
+
+
+	Pearson's Chi-squared test
+
+data:  region.crosstab
+X-squared = 26038, df = 3, p-value < 2.2e-16
+

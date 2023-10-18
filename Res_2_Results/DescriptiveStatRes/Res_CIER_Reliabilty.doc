@@ -15,7 +15,7 @@ table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
 </head>
 
 <body>
-<p>Reliability Analysis of Psychometric Scales</p>
+<p>C/IER: Reliability Analysis of Psychometric Scales</p>
 <table>
 <thead>
 <tr> <th align='left'></th> <th align='right'>Measurement</th> <th align='right'>Crobach's Alpha</th> <th align='right'>alpha_CI</th> <th align='right'>Guttman's Lambda 6</th> <th align='right'>ITC_Mean</th> <th align='right'>Signal/Noise Ratio</th> <th align='right'>McDonald's Omega_h</th> <th align='right'>McDonald's Omega_t</th> <th align='right'>Alpha_LowCI</th> <th align='right'>Alpha_UpCI</th> </tr>

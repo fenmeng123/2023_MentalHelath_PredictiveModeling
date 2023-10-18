@@ -6,14 +6,14 @@ gc()
 
 data <- readRDS('../Res_3_IntermediateData/16w_BehavProb_Compact_AgeWinsor.rds')
 
-data <- subset(data,CIER_Flag==F,-c(RT_TPI,MLS_Sum,IRV_WSum_Z,EOC,MahaD_SQ,
-                                    RT_Bully,RT_Stress,RT_AcadBO,RT_IAT,
-                                    RT_Anx,RT_Dep,RT_SuiciIdea,RT_SelfInjury,
-                                    MLS_Stress,MLS_AcadBO,MLS_IAT,MLS_Anx,
-                                    MLS_Dep,MLS_SuiciIdea,MLS_SelfInjury,
-                                    IRV_Stress,IRV_AcadBO,IRV_IAT,IRV_Anx,
-                                    IRV_Dep,IRV_SuiciIdea,IRV_SelfInjury,
-                                    IRV_WSum,IRV_Num,RT_BehavioralProblem))
+data <- select(data,-c(RT_TPI,MLS_Sum,IRV_WSum_Z,EOC,MahaD_SQ,
+                       RT_Bully,RT_Stress,RT_AcadBO,RT_IAT,
+                       RT_Anx,RT_Dep,RT_SuiciIdea,RT_SelfInjury,
+                       MLS_Stress,MLS_AcadBO,MLS_IAT,MLS_Anx,
+                       MLS_Dep,MLS_SuiciIdea,MLS_SelfInjury,
+                       IRV_Stress,IRV_AcadBO,IRV_IAT,IRV_Anx,
+                       IRV_Dep,IRV_SuiciIdea,IRV_SelfInjury,
+                       IRV_WSum,IRV_Num,RT_BehavioralProblem))
 
 data <- rename(data,
                BullyVict_1 = Bully,

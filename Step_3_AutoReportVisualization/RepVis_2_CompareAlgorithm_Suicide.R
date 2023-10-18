@@ -86,9 +86,9 @@ ggsave(filename = '../Res_2_Results/Res_Boxplot_CompMdl_Suicide.svg',
 # Balanced ACC
 psych::describeBy(BalancedACC~Model,mat = T,
                   data = dplyr::select(res,c(BalancedACC,Model))) -> Sum_BACC
-Sum_BACC$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
-                      'Non-linear','Non-linear','Non-linear',
-                      'Tree Model','Generative Model')
+# Sum_BACC$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
+#                       'Non-linear','Non-linear','Non-linear',
+#                       'Tree Model','Generative Model')
 Sum_BACC$group1 <- factor(Sum_BACC$group1,
                           levels = c('LDA',
                                      'LogisticR',
@@ -121,9 +121,9 @@ ggsave(filename = '../Res_2_Results/Res_Barplot_BACC_CompMdl_Suicide.svg',
 # ACC
 psych::describeBy(ACC~Model,mat = T,
                   data = dplyr::select(res,c(ACC,Model))) -> Sum_ACC
-Sum_ACC$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
-                     'Non-linear','Non-linear','Non-linear',
-                     'Tree Model','Generative Model')
+# Sum_ACC$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
+#                      'Non-linear','Non-linear','Non-linear',
+#                      'Tree Model','Generative Model')
 Sum_ACC$group1 <- factor(Sum_ACC$group1,
                          levels = c('LDA',
                                     'LogisticR',
@@ -155,9 +155,9 @@ ggsave(filename = '../Res_2_Results/Res_Barplot_ACC_CompMdl_Suicide.svg',
 # Sensitivity
 psych::describeBy(Sensitivity~Model,mat = T,
                   data = dplyr::select(res,c(Sensitivity,Model))) -> Sum_Sen
-Sum_Sen$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
-                     'Non-linear','Non-linear','Non-linear',
-                     'Tree Model','Generative Model')
+# Sum_Sen$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
+#                      'Non-linear','Non-linear','Non-linear',
+#                      'Tree Model','Generative Model')
 Sum_Sen$group1 <- factor(Sum_Sen$group1,
                          levels = c('LDA',
                                     'LogisticR',
@@ -189,9 +189,9 @@ ggsave(filename = '../Res_2_Results/Res_Barplot_Sen_CompMdl_Suicide.svg',
 # Specificity
 psych::describeBy(Specificity~Model,mat = T,
                   data = dplyr::select(res,c(Specificity,Model))) -> Sum_Spe
-Sum_Spe$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
-                     'Non-linear','Non-linear','Non-linear',
-                     'Tree Model','Generative Model')
+# Sum_Spe$MdlType <- c('Linear','Linear','Linear','Linear','Linear','Linear',
+#                      'Non-linear','Non-linear','Non-linear',
+#                      'Tree Model','Generative Model')
 Sum_Spe$group1 <- factor(Sum_Spe$group1,
                          levels = c('LDA',
                                     'LogisticR',

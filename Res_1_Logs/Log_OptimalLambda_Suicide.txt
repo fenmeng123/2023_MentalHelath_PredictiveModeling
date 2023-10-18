@@ -1,0 +1,2 @@
+The Best L2 = 278.255940 (Balanced ACC=0.8287)
+Fine-tuning: the Best L2 = 293.718889 (Balanced ACC=0.8286)

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p></p>
+<table>
+<thead>
+<tr> <th align='left'>Predictors</th> <th align='right'>Importance [95% CI]</th> <th align='right'>mean</th> <th align='right'>sd</th> <th align='right'>median</th> <th align='right'>min</th> <th align='right'>max</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Anxiety</td> <td align='right'>9.33 [9.27, 9.40]</td> <td align='right'>9.33</td> <td align='right'>0.03</td> <td align='right'>9.33</td> <td align='right'>9.24</td> <td align='right'>9.43</td> </tr>
+<tr> <td align='left'>Perceived Stress</td> <td align='right'>4.28 [4.19, 4.37]</td> <td align='right'>4.28</td> <td align='right'>0.05</td> <td align='right'>4.28</td> <td align='right'>4.08</td> <td align='right'>4.40</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>2.88 [2.82, 2.94]</td> <td align='right'>2.88</td> <td align='right'>0.03</td> <td align='right'>2.88</td> <td align='right'>2.77</td> <td align='right'>3.00</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>2.10 [2.05, 2.14]</td> <td align='right'>2.10</td> <td align='right'>0.02</td> <td align='right'>2.10</td> <td align='right'>2.03</td> <td align='right'>2.17</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>1.17 [1.11, 1.22]</td> <td align='right'>1.17</td> <td align='right'>0.03</td> <td align='right'>1.17</td> <td align='right'>1.08</td> <td align='right'>1.26</td> </tr>
+<tr> <td align='left'>Be Bullied</td> <td align='right'>0.35 [0.34, 0.37]</td> <td align='right'>0.35</td> <td align='right'>0.01</td> <td align='right'>0.35</td> <td align='right'>0.33</td> <td align='right'>0.38</td> </tr>
+<tr> <td align='left'>Age</td> <td align='right'>0.30 [0.27, 0.32]</td> <td align='right'>0.30</td> <td align='right'>0.01</td> <td align='right'>0.30</td> <td align='right'>0.25</td> <td align='right'>0.34</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

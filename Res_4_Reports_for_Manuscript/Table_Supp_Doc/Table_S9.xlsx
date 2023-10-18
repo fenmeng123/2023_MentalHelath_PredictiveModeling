@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p>Table S9. External Sample Subgrop Analysis: Model Performance in Depression Prediction</p>
+<table>
+<thead>
+<tr> <th align='left'></th> <th align='right'>Boy</th> <th align='right'>Girl</th> <th align='right'>PrimarySchool</th> <th align='right'>JuniorSchool</th> <th align='right'>SeniorSchool</th> <th align='right'>Eastern</th> <th align='right'>Northeast</th> <th align='right'>Central</th> <th align='right'>Western</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>1</td> <td align='right'>Down-sampling</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>ACC</td> <td align='right'>83.69% (0.15%) [83.41%, 83.96%]</td> <td align='right'>86.27% (0.12%) [86.03%, 86.50%]</td> <td align='right'>85.80% (0.21%) [85.39%, 86.22%]</td> <td align='right'>85.53% (0.13%) [85.26%, 85.79%]</td> <td align='right'>84.00% (0.16%) [83.67%, 84.29%]</td> <td align='right'>83.71% (0.14%) [83.42%, 83.98%]</td> <td align='right'>83.17% (0.33%) [82.50%, 83.81%]</td> <td align='right'>82.27% (0.26%) [81.75%, 82.76%]</td> <td align='right'>87.48% (0.17%) [87.13%, 87.79%]</td> </tr>
+<tr> <td align='left'>Balanced ACC</td> <td align='right'>85.74% (0.02%) [85.68%, 85.78%]</td> <td align='right'>87.94% (0.01%) [87.91%, 87.96%]</td> <td align='right'>87.43% (0.06%) [87.32%, 87.53%]</td> <td align='right'>86.94% (0.02%) [86.90%, 86.98%]</td> <td align='right'>85.53% (0.02%) [85.49%, 85.56%]</td> <td align='right'>85.86% (0.04%) [85.79%, 85.94%]</td> <td align='right'>86.57% (0.10%) [86.36%, 86.75%]</td> <td align='right'>85.36% (0.05%) [85.28%, 85.45%]</td> <td align='right'>87.16% (0.04%) [87.07%, 87.24%]</td> </tr>
+<tr> <td align='left'>Sensitivity</td> <td align='right'>88.12% (0.18%) [87.74%, 88.47%]</td> <td align='right'>89.95% (0.15%) [89.66%, 90.23%]</td> <td align='right'>89.22% (0.24%) [88.72%, 89.69%]</td> <td align='right'>88.65% (0.18%) [88.28%, 89.00%]</td> <td align='right'>87.50% (0.20%) [87.13%, 87.91%]</td> <td align='right'>88.36% (0.21%) [87.95%, 88.76%]</td> <td align='right'>90.53% (0.36%) [89.83%, 91.22%]</td> <td align='right'>89.08% (0.26%) [88.58%, 89.60%]</td> <td align='right'>86.78% (0.25%) [86.28%, 87.28%]</td> </tr>
+<tr> <td align='left'>Specificity</td> <td align='right'>83.36% (0.17%) [83.03%, 83.68%]</td> <td align='right'>85.93% (0.15%) [85.64%, 86.21%]</td> <td align='right'>85.65% (0.23%) [85.21%, 86.10%]</td> <td align='right'>85.24% (0.16%) [84.91%, 85.55%]</td> <td align='right'>83.56% (0.20%) [83.15%, 83.93%]</td> <td align='right'>83.37% (0.17%) [83.04%, 83.68%]</td> <td align='right'>82.61% (0.38%) [81.85%, 83.34%]</td> <td align='right'>81.65% (0.31%) [81.03%, 82.24%]</td> <td align='right'>87.54% (0.20%) [87.12%, 87.92%]</td> </tr>
+<tr> <td align='left'>PPV</td> <td align='right'>28.16% (0.17%) [27.84%, 28.47%]</td> <td align='right'>37.22% (0.21%) [36.83%, 37.61%]</td> <td align='right'>22.10% (0.24%) [21.65%, 22.58%]</td> <td align='right'>36.13% (0.21%) [35.71%, 36.54%]</td> <td align='right'>39.88% (0.24%) [39.39%, 40.33%]</td> <td align='right'>27.78% (0.16%) [27.48%, 28.09%]</td> <td align='right'>28.66% (0.38%) [27.89%, 29.42%]</td> <td align='right'>30.74% (0.30%) [30.16%, 31.31%]</td> <td align='right'>37.28% (0.31%) [36.64%, 37.89%]</td> </tr>
+<tr> <td align='left'>NPV</td> <td align='right'>98.96% (0.01%) [98.93%, 98.98%]</td> <td align='right'>98.93% (0.01%) [98.90%, 98.95%]</td> <td align='right'>99.43% (0.01%) [99.41%, 99.45%]</td> <td align='right'>98.76% (0.02%) [98.73%, 98.79%]</td> <td align='right'>98.17% (0.02%) [98.12%, 98.22%]</td> <td align='right'>99.00% (0.02%) [98.97%, 99.03%]</td> <td align='right'>99.12% (0.03%) [99.07%, 99.18%]</td> <td align='right'>98.79% (0.02%) [98.75%, 98.84%]</td> <td align='right'>98.73% (0.02%) [98.69%, 98.77%]</td> </tr>
+<tr> <td align='left'>F1-score</td> <td align='right'>0.4268 (0.0017) [0.4235, 0.4300]</td> <td align='right'>0.5265 (0.0018) [0.5231, 0.5300]</td> <td align='right'>0.3543 (0.0029) [0.3486, 0.3600]</td> <td align='right'>0.5134 (0.0018) [0.5097, 0.5169]</td> <td align='right'>0.5479 (0.0019) [0.5440, 0.5514]</td> <td align='right'>0.4227 (0.0016) [0.4196, 0.4260]</td> <td align='right'>0.4354 (0.0041) [0.4272, 0.4434]</td> <td align='right'>0.4570 (0.0030) [0.4512, 0.4627]</td> <td align='right'>0.5215 (0.0026) [0.5161, 0.5266]</td> </tr>
+<tr> <td align='left'>11</td> <td align='right'>Up-sampling</td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> <td align='right'></td> </tr>
+<tr> <td align='left'>ACC1</td> <td align='right'>83.88% (0.04%) [83.80%, 83.95%]</td> <td align='right'>86.40% (0.04%) [86.33%, 86.47%]</td> <td align='right'>85.97% (0.04%) [85.89%, 86.05%]</td> <td align='right'>85.63% (0.04%) [85.55%, 85.71%]</td> <td align='right'>84.15% (0.05%) [84.04%, 84.26%]</td> <td align='right'>83.76% (0.04%) [83.69%, 83.84%]</td> <td align='right'>84.11% (0.08%) [83.95%, 84.26%]</td> <td align='right'>82.94% (0.06%) [82.82%, 83.06%]</td> <td align='right'>87.73% (0.05%) [87.64%, 87.82%]</td> </tr>
+<tr> <td align='left'>Balanced ACC1</td> <td align='right'>85.73% (0.01%) [85.71%, 85.74%]</td> <td align='right'>87.92% (0.01%) [87.91%, 87.93%]</td> <td align='right'>87.53% (0.01%) [87.51%, 87.55%]</td> <td align='right'>86.91% (0.01%) [86.89%, 86.92%]</td> <td align='right'>85.53% (0.01%) [85.52%, 85.55%]</td> <td align='right'>85.94% (0.01%) [85.92%, 85.97%]</td> <td align='right'>86.58% (0.06%) [86.45%, 86.70%]</td> <td align='right'>85.45% (0.01%) [85.43%, 85.48%]</td> <td align='right'>87.22% (0.01%) [87.20%, 87.25%]</td> </tr>
+<tr> <td align='left'>Sensitivity1</td> <td align='right'>87.87% (0.05%) [87.78%, 87.97%]</td> <td align='right'>89.76% (0.05%) [89.67%, 89.85%]</td> <td align='right'>89.25% (0.05%) [89.15%, 89.34%]</td> <td align='right'>88.45% (0.06%) [88.33%, 88.56%]</td> <td align='right'>87.31% (0.07%) [87.18%, 87.44%]</td> <td align='right'>88.46% (0.07%) [88.33%, 88.59%]</td> <td align='right'>89.47% (0.17%) [89.14%, 89.79%]</td> <td align='right'>88.47% (0.08%) [88.34%, 88.63%]</td> <td align='right'>86.62% (0.08%) [86.47%, 86.77%]</td> </tr>
+<tr> <td align='left'>Specificity1</td> <td align='right'>83.58% (0.04%) [83.50%, 83.67%]</td> <td align='right'>86.09% (0.04%) [86.00%, 86.17%]</td> <td align='right'>85.82% (0.04%) [85.74%, 85.91%]</td> <td align='right'>85.37% (0.05%) [85.27%, 85.47%]</td> <td align='right'>83.76% (0.07%) [83.62%, 83.89%]</td> <td align='right'>83.42% (0.05%) [83.33%, 83.52%]</td> <td align='right'>83.70% (0.09%) [83.51%, 83.87%]</td> <td align='right'>82.44% (0.08%) [82.29%, 82.58%]</td> <td align='right'>87.82% (0.06%) [87.72%, 87.94%]</td> </tr>
+<tr> <td align='left'>PPV1</td> <td align='right'>28.38% (0.04%) [28.29%, 28.46%]</td> <td align='right'>37.44% (0.06%) [37.32%, 37.56%]</td> <td align='right'>22.32% (0.04%) [22.23%, 22.40%]</td> <td align='right'>36.28% (0.07%) [36.15%, 36.41%]</td> <td align='right'>40.11% (0.09%) [39.94%, 40.28%]</td> <td align='right'>27.87% (0.04%) [27.79%, 27.96%]</td> <td align='right'>29.76% (0.10%) [29.55%, 29.94%]</td> <td align='right'>31.53% (0.08%) [31.39%, 31.68%]</td> <td align='right'>37.78% (0.09%) [37.61%, 37.96%]</td> </tr>
+<tr> <td align='left'>NPV1</td> <td align='right'>98.94% (0.00%) [98.93%, 98.95%]</td> <td align='right'>98.91% (0.00%) [98.90%, 98.92%]</td> <td align='right'>99.43% (0.00%) [99.43%, 99.44%]</td> <td align='right'>98.74% (0.01%) [98.73%, 98.75%]</td> <td align='right'>98.15% (0.01%) [98.13%, 98.16%]</td> <td align='right'>99.01% (0.01%) [99.00%, 99.02%]</td> <td align='right'>99.04% (0.01%) [99.01%, 99.07%]</td> <td align='right'>98.74% (0.01%) [98.72%, 98.75%]</td> <td align='right'>98.72% (0.01%) [98.70%, 98.73%]</td> </tr>
+<tr> <td align='left'>F1-score1</td> <td align='right'>0.4290 (0.0005) [0.4281, 0.4299]</td> <td align='right'>0.5284 (0.0005) [0.5273, 0.5294]</td> <td align='right'>0.3570 (0.0005) [0.3560, 0.3581]</td> <td align='right'>0.5146 (0.0006) [0.5134, 0.5156]</td> <td align='right'>0.5496 (0.0007) [0.5483, 0.5510]</td> <td align='right'>0.4239 (0.0004) [0.4230, 0.4248]</td> <td align='right'>0.4466 (0.0010) [0.4445, 0.4485]</td> <td align='right'>0.4649 (0.0007) [0.4636, 0.4664]</td> <td align='right'>0.5261 (0.0007) [0.5247, 0.5276]</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

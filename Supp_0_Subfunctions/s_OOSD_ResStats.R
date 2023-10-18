@@ -46,6 +46,7 @@ Get.Res.Sum <-function(Res){
   Res_Table <- data.frame()
   if (nrow(Res) > 1){
     psych::describe(Res) %>%
+      as.data.frame() %>%
       select(mean,sd,min,max) -> Res_Sum
     Res_Sum$Index <- rownames(Res_Sum)
     rownames(Res_Sum) <- NULL 

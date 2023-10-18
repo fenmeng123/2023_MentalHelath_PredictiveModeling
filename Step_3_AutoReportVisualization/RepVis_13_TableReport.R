@@ -59,6 +59,15 @@ colnames(sep_2) <- colnames(T_Dep)
 
 Table_S6 <- rbind(sep_1,T_Dep,
                   sep_2,T_Suici)
+Table_S6$Median %>%
+  as.numeric() %>%
+  sprintf('%.2f',.) -> Table_S6$Median
+Table_S6$Min %>%
+  as.numeric() %>%
+  sprintf('%.2f',.) -> Table_S6$Min
+Table_S6$Max %>%
+  as.numeric() %>%
+  sprintf('%.2f',.) -> Table_S6$Max
 print_table(Table_S6,
             file = '../Res_2_Results/Table_S6.docx',
             title = 'Table S6. Internal Sample Feature Selection: Cross-validated Recursive Feature Elimination',
@@ -142,7 +151,7 @@ print_table(Table_S9,
             file = '../Res_2_Results/Table_S9.docx',
             title = 'Table S9. External Sample Subgrop Analysis: Model Performance in Depression Prediction',
             digits = 4,
-            row.names = F)
+            row.names = T)
 export(Table_S9,'../Res_2_Results/Table_S9.xlsx')
 
 # Prepare Table S10 -------------------------------------------------------
@@ -183,7 +192,7 @@ print_table(Table_S10,
             file = '../Res_2_Results/Table_S10.docx',
             title = 'Table S10. External Sample Subgrop Analysis: Model Performance in Suicidal Ideation Prediction',
             digits = 4,
-            row.names = F)
+            row.names = T)
 export(Table_S10,'../Res_2_Results/Table_S10.xlsx')
 
 # Prepare Table S11 -------------------------------------------------------

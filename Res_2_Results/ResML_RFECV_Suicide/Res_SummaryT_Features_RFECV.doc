@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p></p>
+<table>
+<thead>
+<tr> <th align='left'>Predictors</th> <th align='right'>N_RFEpass</th> <th align='right'>N_RFEfail</th> <th align='right'>Mean</th> <th align='right'>SD</th> <th align='right'>Median</th> <th align='right'>Min</th> <th align='right'>Max</th> <th align='right'>Freq</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Anxiety</td> <td align='right'>1000.00</td> <td align='right'>0.00</td> <td align='right'>7.38</td> <td align='right'>0.21</td> <td align='right'>7.37</td> <td align='right'>6.76</td> <td align='right'>8.13</td> <td align='right'>0.00</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>1000.00</td> <td align='right'>0.00</td> <td align='right'>4.48</td> <td align='right'>0.26</td> <td align='right'>4.47</td> <td align='right'>3.70</td> <td align='right'>5.20</td> <td align='right'>0.00</td> </tr>
+<tr> <td align='left'>Perceived Stress</td> <td align='right'>1000.00</td> <td align='right'>0.00</td> <td align='right'>2.54</td> <td align='right'>0.25</td> <td align='right'>2.54</td> <td align='right'>1.76</td> <td align='right'>3.34</td> <td align='right'>0.00</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>997.00</td> <td align='right'>3.00</td> <td align='right'>1.13</td> <td align='right'>0.14</td> <td align='right'>1.13</td> <td align='right'>0.59</td> <td align='right'>1.56</td> <td align='right'>0.00</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>984.00</td> <td align='right'>16.00</td> <td align='right'>0.95</td> <td align='right'>0.19</td> <td align='right'>0.94</td> <td align='right'>0.29</td> <td align='right'>1.48</td> <td align='right'>0.02</td> </tr>
+<tr> <td align='left'>Bullying</td> <td align='right'>564.00</td> <td align='right'>436.00</td> <td align='right'>0.15</td> <td align='right'>0.07</td> <td align='right'>0.15</td> <td align='right'>–0.08</td> <td align='right'>0.37</td> <td align='right'>0.44</td> </tr>
+<tr> <td align='left'>Biological Sex</td> <td align='right'>568.00</td> <td align='right'>432.00</td> <td align='right'>0.14</td> <td align='right'>0.05</td> <td align='right'>0.13</td> <td align='right'>0.00</td> <td align='right'>0.32</td> <td align='right'>0.43</td> </tr>
+<tr> <td align='left'>Being Bullied</td> <td align='right'>323.00</td> <td align='right'>677.00</td> <td align='right'>0.05</td> <td align='right'>0.06</td> <td align='right'>0.06</td> <td align='right'>–0.14</td> <td align='right'>0.22</td> <td align='right'>0.68</td> </tr>
+<tr> <td align='left'>Age</td> <td align='right'>967.00</td> <td align='right'>33.00</td> <td align='right'>–0.81</td> <td align='right'>0.10</td> <td align='right'>–0.81</td> <td align='right'>–1.14</td> <td align='right'>–0.49</td> <td align='right'>0.03</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>
