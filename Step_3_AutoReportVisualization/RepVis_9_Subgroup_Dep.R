@@ -10,7 +10,8 @@ source('../Supp_0_Subfunctions/s_OOSD_ResStats.R')
 source('../Supp_0_Subfunctions/s_SubG_ResStats.R')
 sink('../Res_1_Logs/Log_RepVis_9_SubG_Dep_Results.txt',
      append = F,
-     type = 'output')
+     type = 'output',
+     split = T)
 # Generate Coef Comparison Summary Table ----------------------------------
 
 MdlMethod = 'DownSampMdl'
@@ -61,12 +62,12 @@ MdlMethod = 'DownSampMdl'
 Subgroup = c('Boy','Girl')
 Input_Dir = '../Res_2_Results/ResML_Subgroup_Dep/'
 data <- Extract.Res.Coef(MdlMethod,Subgroup,Input_Dir)
-pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
+data_coef <- pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
                            `Internet Addiction`,`Non-suicidal Self-injury`,
                            `Be Bullied`,`Education Level (Grade)`),
              values_to = 'Feature Importance',
              names_to = 'Predictors') %>%
-  select(`Feature Importance`,Predictors,Group) -> data_coef
+  select(`Feature Importance`,Predictors,Group)
 data_coef$Predictors <- factor(data_coef$Predictors,
                                levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
@@ -74,11 +75,11 @@ data_coef$Predictors <- factor(data_coef$Predictors,
                                labels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                           'Internet Addiction','Non-suicidal Self-injury',
                                           'Being Bullied','Age'))
-data_coef %>%
+p <- data_coef %>%
   ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+
-  geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
-               position = position_dodge(width = 0.4))+
+  # geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
+  #              position = position_dodge(width = 0.4))+
   ggpubr::stat_anova_test(aes(group = Group),
                           label = 'p.adj.signif',
                           label.y = c(7.7,1,2),
@@ -87,12 +88,13 @@ data_coef %>%
                           significance = list(cutpoints = c(0, 0.001, 0.01, 0.05, Inf),
                                               symbols = c("***", "**", "*", "ns")))+
   theme_bruce()+theme(axis.text.x = element_text(angle = 15,hjust = 1),
+                      axis.title.x = element_blank(),
                       panel.grid.major.y = element_line(colour = 'gray80',
                                                         linewidth = 0.2,
                                                         linetype = 'dashed'),
                       legend.position = 'top',
                       legend.title = element_blank())+
-  ggsci::scale_fill_npg() -> p
+  ggsci::scale_fill_npg()
 # p
 ggsave('../Res_2_Results/Res_SexSubgroup_Coef_Dep.png',
        width = 8,
@@ -103,7 +105,7 @@ ggsave('../Res_2_Results/Res_SexSubgroup_Coef_Dep.svg',
        height = 6,
        plot = p)
 
-data %>%
+p <- data %>%
   ggplot(aes(x=`Balanced ACC`*100,y=Group,fill=Group))+
   geom_density_ridges_gradient(scale = 0.8,
                                rel_min_height = 0.001,
@@ -138,16 +140,16 @@ data %>%
            size=5,
            hjust=1,
            label=sprintf("Girl=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='Girl'])*100)) -> p
+                         mean(data$`Balanced ACC`[data$Group=='Girl'])*100))
 # p
 ggsave('../Res_2_Results/Res_SexSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 ggsave('../Res_2_Results/Res_SexSubgroup_BalaACC_Dep.svg',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 
 # Plot Coefs and Balanced ACC: Phase of studying-Subgroup -----------------
@@ -158,12 +160,12 @@ data <- Extract.Res.Coef(MdlMethod,Subgroup,Input_Dir)
 data$Group <- factor(data$Group,
                      levels = c('PrimarySchool','JuniorSchool','SeniorSchool'),
                      labels = c('Primary School','Middle School','High School'))
-pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
+data_coef <- pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
                            `Internet Addiction`,`Non-suicidal Self-injury`,
                            `Be Bullied`,`Education Level (Grade)`),
              values_to = 'Feature Importance',
              names_to = 'Predictors') %>%
-  select(`Feature Importance`,Predictors,Group) -> data_coef
+  select(`Feature Importance`,Predictors,Group)
 data_coef$Predictors <- factor(data_coef$Predictors,
                                levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
@@ -171,11 +173,13 @@ data_coef$Predictors <- factor(data_coef$Predictors,
                                labels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                           'Internet Addiction','Non-suicidal Self-injury',
                                           'Being Bullied','Age'))
-data_coef %>%
-  ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
+p <- data_coef %>%
+  ggplot(
+    aes(x=Predictors,y=`Feature Importance`,fill=Group)
+    )+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+
-  geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
-               position = position_dodge(width = 0.4))+
+  # geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
+  #              position = position_dodge(width = 0.4))+
   ggpubr::stat_anova_test(aes(group = Group),
                           label = 'p.adj.signif',
                           label.y = 7.6,
@@ -184,13 +188,14 @@ data_coef %>%
                           significance = list(cutpoints = c(0, 0.001, 0.01, 0.05, Inf),
                                               symbols = c("***", "**", "*", "ns")))+
   theme_bruce()+theme(axis.text.x = element_text(angle = 15,hjust = 1),
+                      axis.title.x = element_blank(),
                       panel.grid.major.y = element_line(colour = 'gray80',
                                                         linewidth = 0.2,
                                                         linetype = 'dashed'),
                       legend.position = 'top',
                       legend.title = element_blank())+
-  scale_fill_manual(values=ggpubr::get_palette("npg",5)[-1:-2]) -> p
-# p
+  scale_fill_manual(values=ggpubr::get_palette("npg",5)[-1:-2])
+p
 ggsave('../Res_2_Results/Res_PhaseSubgroup_Coef_Dep.png',
        width = 8,
        height = 6,
@@ -199,21 +204,24 @@ ggsave('../Res_2_Results/Res_PhaseSubgroup_Coef_Dep.svg',
        width = 8,
        height = 6,
        plot = p)
-data$Group <- forcats::fct_rev(data$Group)
-data %>%
-  ggplot(aes(x=`Balanced ACC`*100,y=Group,fill=Group))+
+# data$Group <- forcats::fct_rev(data$Group)
+p <- data %>%
+  ggplot(aes(x=`Balanced ACC`*100, y=Group, fill=Group))+
   geom_density_ridges_gradient(scale = 0.8,
                                rel_min_height = 0.001,
                                panel_scaling = T)+
-  theme_ridges()+ scale_fill_manual(values=alpha(ggpubr::get_palette("npg",5)[-1:-2],0.5))+
+  theme_ridges() +
+  scale_fill_manual(
+    values=alpha(ggpubr::get_palette("npg",5)[-1:-2],0.5)
+    )+
   theme(legend.position = 'none',
         axis.title.y = element_blank(),
         axis.title.x = element_text(hjust = 0.5),
-        axis.text.y = element_text(angle=90,hjust=0.5,size = 7))+
+        axis.text.y = element_text(angle=90, hjust=0.5, size = 7))+
   xlim(85.4,87.6)+
   xlab('Balanced ACC (%)')+
   geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Primary School'])*100),
-             colour=ggpubr::get_palette("npg",5)[5],
+             colour=ggpubr::get_palette("npg",5)[3],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
@@ -223,44 +231,44 @@ data %>%
              linewidth=1.5,
              alpha=0.5)+
   geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='High School'])*100),
-             colour=ggpubr::get_palette("npg",5)[3],
+             colour=ggpubr::get_palette("npg",5)[5],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Primary School'])*100,
-           y=3.5,
-           colour = ggpubr::get_palette("npg",5)[5],
+           y=0.8,
+           colour = ggpubr::get_palette("npg",5)[3],
            size=4,
            hjust=1,
-           label=sprintf("Primary School=%.2f%%",
+           label=sprintf("Primary School=%.2f%%\n(Age: 9~12 years old)",
                          mean(data$`Balanced ACC`[data$Group=='Primary School'])*100))+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Middle School'])*100-0.01,
-           y=2.7,
+           y=1.8,
            colour = ggpubr::get_palette("npg",5)[4],
            size=4,
            hjust=1,
-           label=sprintf("Junior School=%.2f%%",
+           label=sprintf("Middle School=%.2f%%\n(Age: 12~15 years old)",
                          mean(data$`Balanced ACC`[data$Group=='Middle School'])*100))+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='High School'])*100+0.01,
-           y=1.85,
-           colour = ggpubr::get_palette("npg",5)[3],
+           y=2.8,
+           colour = ggpubr::get_palette("npg",5)[5],
            size=4,
            hjust=0,
-           label=sprintf("Senior School=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='High School'])*100))->p
+           label=sprintf("High School=%.2f%%\n(Age: 15~18 years old)",
+                         mean(data$`Balanced ACC`[data$Group=='High School'])*100))
 
-# p
+p
 ggsave('../Res_2_Results/Res_PhaseSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 ggsave('../Res_2_Results/Res_PhaseSubgroup_BalaACC_Dep.svg',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 
 # Plot Coefs and Balanced ACC: Geographic Area-Subgroup -------------------
@@ -270,12 +278,12 @@ Input_Dir = '../Res_2_Results/ResML_Subgroup_Dep/'
 data <- Extract.Res.Coef(MdlMethod,Subgroup,Input_Dir)
 data$Group <- factor(data$Group,
                      levels =  c('Eastern','Northeast','Central','Western'))
-pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
+data_coef <- pivot_longer(data,cols = c(Anxiety,`Perceived Stress`,`Academic Burn-out`,
                            `Internet Addiction`,`Non-suicidal Self-injury`,
                            `Be Bullied`,`Education Level (Grade)`),
              values_to = 'Feature Importance',
              names_to = 'Predictors') %>%
-  select(`Feature Importance`,Predictors,Group) -> data_coef
+  select(`Feature Importance`,Predictors,Group)
 data_coef$Predictors <- factor(data_coef$Predictors,
                                levels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                         'Internet Addiction','Non-suicidal Self-injury',
@@ -283,11 +291,11 @@ data_coef$Predictors <- factor(data_coef$Predictors,
                                labels = c('Anxiety','Perceived Stress','Academic Burn-out',
                                           'Internet Addiction','Non-suicidal Self-injury',
                                           'Being Bullied','Age'))
-data_coef %>%
+p <- data_coef %>%
   ggplot(aes(x=Predictors,y=`Feature Importance`,fill=Group))+
   geom_violin(width=0.4,alpha=0.5,trim = T,scale = 'width')+
-  geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
-               position = position_dodge(width = 0.4))+
+  # geom_boxplot(outlier.shape = NA,width = 0.15,alpha=0.1,
+  #              position = position_dodge(width = 0.4))+
   ggpubr::stat_anova_test(aes(group = Group),
                           label = 'p.adj.signif',
                           label.y = 7.6,
@@ -296,13 +304,14 @@ data_coef %>%
                           significance = list(cutpoints = c(0, 0.001, 0.01, 0.05, Inf),
                                               symbols = c("***", "**", "*", "ns")))+
   theme_bruce()+theme(axis.text.x = element_text(angle = 15,hjust = 1),
+                      axis.title.x = element_blank(),
                       panel.grid.major.y = element_line(colour = 'gray80',
                                                         linewidth = 0.2,
                                                         linetype = 'dashed'),
                       legend.position = 'top',
                       legend.title = element_blank())+
-  scale_fill_manual(values=ggpubr::get_palette("npg",9)[-1:-5])+ylim(0,8) -> p
-# p
+  scale_fill_manual(values=ggpubr::get_palette("npg",9)[-1:-5])+ylim(0,8)
+p
 ggsave('../Res_2_Results/Res_GeoAreaSubgroup_Coef_Dep.png',
        width = 8,
        height = 6,
@@ -311,8 +320,8 @@ ggsave('../Res_2_Results/Res_GeoAreaSubgroup_Coef_Dep.svg',
        width = 8,
        height = 6,
        plot = p)
-data$Group <- forcats::fct_rev(data$Group)
-data %>%
+# data$Group <- forcats::fct_rev(data$Group)
+p <- data %>%
   ggplot(aes(x=`Balanced ACC`*100,y=Group,fill=Group))+
   geom_density_ridges_gradient(scale = 0.8,
                                rel_min_height = 0.001,
@@ -325,67 +334,67 @@ data %>%
   xlim(85,87.5)+
   xlab('Balanced ACC (%)')+
   geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Eastern'])*100),
-             colour=ggpubr::get_palette("npg",9)[9],
+             colour=ggpubr::get_palette("npg",9)[6],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
   geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Northeast'])*100),
-             colour=ggpubr::get_palette("npg",9)[8],
-             linetype='dashed',
-             linewidth=1.5,
-             alpha=0.5)+
-  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Central'])*100),
              colour=ggpubr::get_palette("npg",9)[7],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
+  geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Central'])*100),
+             colour=ggpubr::get_palette("npg",9)[8],
+             linetype='dashed',
+             linewidth=1.5,
+             alpha=0.5)+
   geom_vline(aes(xintercept=mean(`Balanced ACC`[Group=='Western'])*100),
-             colour=ggpubr::get_palette("npg",9)[6],
+             colour=ggpubr::get_palette("npg",9)[9],
              linetype='dashed',
              linewidth=1.5,
              alpha=0.5)+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Eastern'])*100,
-           y=3.9,
-           colour = ggpubr::get_palette("npg",9)[9],
+           y=1.9,
+           colour = ggpubr::get_palette("npg",9)[6],
            size=4,
            hjust=0.5,
            label=sprintf("Eastern China=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='Eastern'])*100))+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Northeast'])*100,
-           y=3.5,
-           colour = ggpubr::get_palette("npg",9)[8],
+           y=2.6,
+           colour = ggpubr::get_palette("npg",9)[7],
            size=4,
            hjust=0.5,
            label=sprintf("Northeast China=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='Northeast'])*100))+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Central'])*100,
-           y=2.75,
-           colour = ggpubr::get_palette("npg",9)[7],
+           y=2.8,
+           colour = ggpubr::get_palette("npg",9)[8],
            size=4,
            hjust=0.5,
            label=sprintf("Central China=%.2f%%",
                          mean(data$`Balanced ACC`[data$Group=='Central'])*100))+
   annotate('text',
            x=mean(data$`Balanced ACC`[data$Group=='Western'])*100,
-           y=1.85,
-           colour = ggpubr::get_palette("npg",9)[6],
+           y=3.9,
+           colour = ggpubr::get_palette("npg",9)[9],
            size=4,
            hjust=0.5,
            label=sprintf("Western China=%.2f%%",
-                         mean(data$`Balanced ACC`[data$Group=='Western'])*100)) ->p
+                         mean(data$`Balanced ACC`[data$Group=='Western'])*100))
 
-# p
+p
 ggsave('../Res_2_Results/Res_GeoAreaSubgroup_BalaACC_Dep.png',
        bg = 'white',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 ggsave('../Res_2_Results/Res_GeoAreaSubgroup_BalaACC_Dep.svg',
        width = 6,
-       height = 4,
+       height = 6,
        plot = p)
 
 sink()

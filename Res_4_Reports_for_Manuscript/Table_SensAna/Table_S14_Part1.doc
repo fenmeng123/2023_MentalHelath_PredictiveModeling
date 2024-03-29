@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p></p>
+<table>
+<thead>
+<tr> <th align='left'></th> <th align='right'>V1</th> <th align='right'>V2</th> <th align='right'>V3</th> <th align='right'>V4</th> <th align='right'>V5</th> <th align='right'>V6</th> <th align='right'>V7</th> <th align='right'>V8</th> <th align='right'>V9</th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>Age</td> <td align='right'>9-10</td> <td align='right'>10-11</td> <td align='right'>11-12</td> <td align='right'>12-13</td> <td align='right'>13-14</td> <td align='right'>14-15</td> <td align='right'>15-16</td> <td align='right'>16-17</td> <td align='right'>17-18</td> </tr>
+<tr> <td align='left'>Boys</td> <td align='right'>11335 (52.96%)</td> <td align='right'>11579 (52.2%)</td> <td align='right'>10163 (52.73%)</td> <td align='right'>11379 (50.99%)</td> <td align='right'>11244 (51.23%)</td> <td align='right'>8395 (51.1%)</td> <td align='right'>6913 (49.14%)</td> <td align='right'>6428 (48.25%)</td> <td align='right'>4801 (47.9%)</td> </tr>
+<tr> <td align='left'>Girls</td> <td align='right'>10069 (47.04%)</td> <td align='right'>10601 (47.8%)</td> <td align='right'>9111 (47.27%)</td> <td align='right'>10938 (49.01%)</td> <td align='right'>10702 (48.77%)</td> <td align='right'>8034 (48.9%)</td> <td align='right'>7154 (50.86%)</td> <td align='right'>6895 (51.75%)</td> <td align='right'>5221 (52.1%)</td> </tr>
+<tr> <td align='left'>Region_East</td> <td align='right'>10015 (46.79%)</td> <td align='right'>10167 (45.84%)</td> <td align='right'>10481 (54.38%)</td> <td align='right'>9840 (44.09%)</td> <td align='right'>9592 (43.71%)</td> <td align='right'>8473 (51.57%)</td> <td align='right'>5709 (40.58%)</td> <td align='right'>5377 (40.36%)</td> <td align='right'>5159 (51.48%)</td> </tr>
+<tr> <td align='left'>Region_NorE</td> <td align='right'>2287 (10.68%)</td> <td align='right'>2318 (10.45%)</td> <td align='right'>1962 (10.18%)</td> <td align='right'>2419 (10.84%)</td> <td align='right'>2504 (11.41%)</td> <td align='right'>2441 (14.86%)</td> <td align='right'>1662 (11.81%)</td> <td align='right'>1497 (11.24%)</td> <td align='right'>1477 (14.74%)</td> </tr>
+<tr> <td align='left'>Region_Cent</td> <td align='right'>3685 (17.22%)</td> <td align='right'>4441 (20.02%)</td> <td align='right'>4284 (22.23%)</td> <td align='right'>4953 (22.19%)</td> <td align='right'>4790 (21.83%)</td> <td align='right'>3441 (20.94%)</td> <td align='right'>3038 (21.6%)</td> <td align='right'>3005 (22.55%)</td> <td align='right'>2069 (20.64%)</td> </tr>
+<tr> <td align='left'>Region_West</td> <td align='right'>5417 (25.31%)</td> <td align='right'>5254 (23.69%)</td> <td align='right'>2547 (13.21%)</td> <td align='right'>5105 (22.87%)</td> <td align='right'>5060 (23.06%)</td> <td align='right'>2074 (12.62%)</td> <td align='right'>3658 (26%)</td> <td align='right'>3444 (25.85%)</td> <td align='right'>1317 (13.14%)</td> </tr>
+<tr> <td align='left'>SP_Primary</td> <td align='right'>21404 (100%)</td> <td align='right'>22180 (100%)</td> <td align='right'>19274 (100%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> </tr>
+<tr> <td align='left'>SP_Middle</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>22317 (100%)</td> <td align='right'>21946 (100%)</td> <td align='right'>16429 (100%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> </tr>
+<tr> <td align='left'>SP_High</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>0 (0%)</td> <td align='right'>14067 (100%)</td> <td align='right'>13323 (100%)</td> <td align='right'>10022 (100%)</td> </tr>
+<tr> <td align='left'>CIER_Yes</td> <td align='right'>1205 (5.63%)</td> <td align='right'>1177 (5.31%)</td> <td align='right'>1026 (5.32%)</td> <td align='right'>1417 (6.35%)</td> <td align='right'>1636 (7.45%)</td> <td align='right'>1203 (7.32%)</td> <td align='right'>914 (6.5%)</td> <td align='right'>921 (6.91%)</td> <td align='right'>798 (7.96%)</td> </tr>
+<tr> <td align='left'>CIER_No</td> <td align='right'>20199 (94.37%)</td> <td align='right'>21003 (94.69%)</td> <td align='right'>18248 (94.68%)</td> <td align='right'>20900 (93.65%)</td> <td align='right'>20310 (92.55%)</td> <td align='right'>15226 (92.68%)</td> <td align='right'>13153 (93.5%)</td> <td align='right'>12402 (93.09%)</td> <td align='right'>9224 (92.04%)</td> </tr>
+<tr> <td align='left'>Dep_Pos</td> <td align='right'>828 (3.87%)</td> <td align='right'>993 (4.48%)</td> <td align='right'>1051 (5.45%)</td> <td align='right'>1943 (8.71%)</td> <td align='right'>2455 (11.19%)</td> <td align='right'>1849 (11.25%)</td> <td align='right'>1693 (12.04%)</td> <td align='right'>1610 (12.08%)</td> <td align='right'>1227 (12.24%)</td> </tr>
+<tr> <td align='left'>Dep_Neg</td> <td align='right'>20576 (96.13%)</td> <td align='right'>21187 (95.52%)</td> <td align='right'>18223 (94.55%)</td> <td align='right'>20374 (91.29%)</td> <td align='right'>19491 (88.81%)</td> <td align='right'>14580 (88.75%)</td> <td align='right'>12374 (87.96%)</td> <td align='right'>11713 (87.92%)</td> <td align='right'>8795 (87.76%)</td> </tr>
+<tr> <td align='left'>SuiciIdea_Pos</td> <td align='right'>796 (3.72%)</td> <td align='right'>828 (3.73%)</td> <td align='right'>769 (3.99%)</td> <td align='right'>1250 (5.6%)</td> <td align='right'>1522 (6.94%)</td> <td align='right'>1039 (6.32%)</td> <td align='right'>699 (4.97%)</td> <td align='right'>692 (5.19%)</td> <td align='right'>494 (4.93%)</td> </tr>
+<tr> <td align='left'>SuiciIdea_Neg</td> <td align='right'>20608 (96.28%)</td> <td align='right'>21352 (96.27%)</td> <td align='right'>18505 (96.01%)</td> <td align='right'>21067 (94.4%)</td> <td align='right'>20424 (93.06%)</td> <td align='right'>15390 (93.68%)</td> <td align='right'>13368 (95.03%)</td> <td align='right'>12631 (94.81%)</td> <td align='right'>9528 (95.07%)</td> </tr>
+<tr> <td align='left'>Depression</td> <td align='right'>5.29 (4.86)</td> <td align='right'>5.3 (5.08)</td> <td align='right'>5.48 (5.38)</td> <td align='right'>6.85 (5.81)</td> <td align='right'>7.71 (6.07)</td> <td align='right'>7.84 (6.05)</td> <td align='right'>8.54 (5.78)</td> <td align='right'>8.62 (5.75)</td> <td align='right'>8.63 (5.8)</td> </tr>
+<tr> <td align='left'>Suicidal Ideation</td> <td align='right'>22.88 (9.27)</td> <td align='right'>22.54 (9.2)</td> <td align='right'>22.5 (9.31)</td> <td align='right'>24.82 (9.84)</td> <td align='right'>25.98 (10.23)</td> <td align='right'>25.86 (9.91)</td> <td align='right'>25.9 (8.99)</td> <td align='right'>25.97 (8.99)</td> <td align='right'>25.83 (9.12)</td> </tr>
+<tr> <td align='left'>Stress</td> <td align='right'>18.39 (9.7)</td> <td align='right'>17.64 (9.89)</td> <td align='right'>17.53 (10.21)</td> <td align='right'>20.98 (9.78)</td> <td align='right'>22.42 (9.81)</td> <td align='right'>22.92 (9.61)</td> <td align='right'>24.32 (8.66)</td> <td align='right'>24.52 (8.39)</td> <td align='right'>24.38 (8.71)</td> </tr>
+<tr> <td align='left'>Academic Burn-out</td> <td align='right'>31.39 (10.9)</td> <td align='right'>31.4 (10.99)</td> <td align='right'>31.82 (11.48)</td> <td align='right'>36.65 (11.53)</td> <td align='right'>39.24 (12)</td> <td align='right'>40.16 (11.96)</td> <td align='right'>43.13 (10.72)</td> <td align='right'>43.07 (10.44)</td> <td align='right'>42.87 (10.78)</td> </tr>
+<tr> <td align='left'>Internet Addiction</td> <td align='right'>32.64 (13.52)</td> <td align='right'>33.3 (14.08)</td> <td align='right'>34.07 (14.37)</td> <td align='right'>37.48 (15.28)</td> <td align='right'>40.85 (15.79)</td> <td align='right'>40.68 (15.85)</td> <td align='right'>43.85 (14.92)</td> <td align='right'>43.79 (14.56)</td> <td align='right'>43.33 (14.82)</td> </tr>
+<tr> <td align='left'>Anxiety</td> <td align='right'>39.84 (11.11)</td> <td align='right'>39.83 (11.16)</td> <td align='right'>39.95 (11.47)</td> <td align='right'>42.8 (11.96)</td> <td align='right'>43.88 (12.2)</td> <td align='right'>43.92 (12)</td> <td align='right'>44.39 (11.35)</td> <td align='right'>44.74 (11.17)</td> <td align='right'>44.86 (11.27)</td> </tr>
+<tr> <td align='left'>Non-suicidal Self-injury</td> <td align='right'>1.58 (5.4)</td> <td align='right'>1.64 (5.67)</td> <td align='right'>1.68 (5.87)</td> <td align='right'>2.47 (7.09)</td> <td align='right'>2.88 (7.64)</td> <td align='right'>2.56 (7.25)</td> <td align='right'>2.32 (6.63)</td> <td align='right'>2.06 (6.27)</td> <td align='right'>1.94 (6.35)</td> </tr>
+<tr> <td align='left'>Bullying_Yes</td> <td align='right'>2798 (13.07%)</td> <td align='right'>2736 (12.34%)</td> <td align='right'>2119 (10.99%)</td> <td align='right'>2107 (9.44%)</td> <td align='right'>2310 (10.53%)</td> <td align='right'>1466 (8.92%)</td> <td align='right'>923 (6.56%)</td> <td align='right'>1034 (7.76%)</td> <td align='right'>817 (8.15%)</td> </tr>
+<tr> <td align='left'>Bullying_No</td> <td align='right'>18606 (86.93%)</td> <td align='right'>19444 (87.66%)</td> <td align='right'>17155 (89.01%)</td> <td align='right'>20210 (90.56%)</td> <td align='right'>19636 (89.47%)</td> <td align='right'>14963 (91.08%)</td> <td align='right'>13144 (93.44%)</td> <td align='right'>12289 (92.24%)</td> <td align='right'>9205 (91.85%)</td> </tr>
+<tr> <td align='left'>Being Bullied_Yes</td> <td align='right'>8203 (38.32%)</td> <td align='right'>7713 (34.77%)</td> <td align='right'>5728 (29.72%)</td> <td align='right'>5287 (23.69%)</td> <td align='right'>5062 (23.07%)</td> <td align='right'>3163 (19.25%)</td> <td align='right'>2009 (14.28%)</td> <td align='right'>1966 (14.76%)</td> <td align='right'>1523 (15.2%)</td> </tr>
+<tr> <td align='left'>Being Bullied_No</td> <td align='right'>13201 (38.32%)</td> <td align='right'>14467 (34.77%)</td> <td align='right'>13546 (29.72%)</td> <td align='right'>17030 (23.69%)</td> <td align='right'>16884 (23.07%)</td> <td align='right'>13266 (19.25%)</td> <td align='right'>12058 (14.28%)</td> <td align='right'>11357 (14.76%)</td> <td align='right'>8499 (15.2%)</td> </tr>
+</tbody>
+</table>
+<p></p>
+</body>
+
+</html>

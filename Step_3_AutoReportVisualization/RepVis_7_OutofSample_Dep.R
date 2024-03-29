@@ -184,6 +184,7 @@ Res_Coef %>%
   facet_grid(Method~.)+
   theme(legend.position = 'None')+
   labs(title = 'Out-of-sample Predicting Depression: Feature Importance') -> p
+
 ggsave('../Res_2_Results/ResML_OOSD_Dep/Res_CoefRidges_OOSD_Dep.png',
        width = 8.74,
        height = 7.72,
