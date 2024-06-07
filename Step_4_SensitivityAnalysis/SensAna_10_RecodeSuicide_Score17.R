@@ -58,9 +58,8 @@ PreprocessRPSD <- function(data){
         TimeStamp_Complete_date)
     )
   data$Depression_Label <- as.numeric(data$Dep_Sum >= 16)
-  data$SuiciIdea_Label <- as.numeric(data$SuiciIdea_Sum > 17)
+  data$SuiciIdea_Label <- as.numeric(data$SuiciIdea_Sum >= 17)
 
-  
   fprintf("|==================Internal Sample N=160,962======================|\n")
   fprintf("| Suicidial Ideantion New Cut-off | [Yes] N = %d Proportion = %2.2f%%|\n",
           sum(data$SuiciIdea_Label),mean(data$SuiciIdea_Label)*100)
@@ -79,6 +78,31 @@ PreprocessRPSD <- function(data){
   export2xls(demo.T,
              file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_RPSD.xlsx',
              header.labels = c(p.overall = 'p'))
+  
+  data %>%
+    compareGroups(Gender ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_RPSD_Sex.xlsx',
+             header.labels = c(p.overall = 'p'))
+  data %>%
+    compareGroups(StudyPhase ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_RPSD_Edu.xlsx',
+               header.labels = c(p.overall = 'p'))
+  data %>%
+    compareGroups(Region_4L ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_RPSD_Area.xlsx',
+               header.labels = c(p.overall = 'p'))
   
   data <- select(data,-Old_SuiciIdea_Label)
   dat <- DummyNormalize(data)
@@ -104,10 +128,8 @@ PreprocessOOSD <- function(data){
   data$CIER_Flag <- as.numeric(data$CIER_Flag) - 2
   data$CIER_Flag[data$CIER_Flag==-1] = 1
   
-  data$SuiciIdea_Label <- data$datestamp < ymd('2020-01-12') 
-  
   data$Depression_Label <- as.numeric(data$Dep_Sum >= 16)
-  data$SuiciIdea_Label <- as.numeric(data$SuiciIdea_Sum > 17)
+  data$SuiciIdea_Label <- as.numeric(data$SuiciIdea_Sum >= 17)
   
   fprintf("|==================External Sample N=1,812,889======================|\n")
   fprintf("| Suicidial Ideantion New Cut-off | [Yes] N = %d Proportion = %2.2f%%|\n",
@@ -128,6 +150,30 @@ PreprocessOOSD <- function(data){
   export2xls(demo.T,
              file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_OOSD.xlsx',
              header.labels = c(p.overall = 'p'))
+  data %>%
+    compareGroups(Gender ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_OOSD_Sex.xlsx',
+               header.labels = c(p.overall = 'p'))
+  data %>%
+    compareGroups(StudyPhase ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_OOSD_Edu.xlsx',
+               header.labels = c(p.overall = 'p'))
+  data %>%
+    compareGroups(Region_4L ~ SuiciIdea_Label + Old_SuiciIdea_Label,
+                  data = .,
+                  method = 3) %>%
+    createTable(show.n = F, show.ci = F,show.ratio = F,
+                digits = 2) %>%
+    export2xls(file = '../Res_2_Results/DescriptiveStatRes/DescrTab_SI17_OOSD_Area.xlsx',
+               header.labels = c(p.overall = 'p'))
   
   data <- select(data,-Old_SuiciIdea_Label)
   dat <- DummyNormalize(data)
@@ -143,6 +189,12 @@ data_16w <- import('../Res_3_IntermediateData/16w_BehavProb_Compact_AgeWinsor.rd
 
 data_181w <- import('../Res_3_IntermediateData/181w_recoded_QC_listwiseDemo.rds') %>%
   PreprocessOOSD()
+
+
+
+
+
+
 
 
 export(data_16w,
